@@ -1,0 +1,141 @@
+.top {
+    background-color: #f2c600;
+    padding: 12px;
+}
+
+.menubar {
+    display: flex;
+    align-items: center;
+}
+
+.brand .logo {
+    background-color: #f29699;
+    padding: 12px 14px;
+    border-radius: 4px;
+}
+
+.brand .name {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.login {
+    background-color: #f2c600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #866100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menubar .brand {
+    flex: 1 1 0;
+}
+
+.top-wrap {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    text-align: left;
+}
+
+.top-wrap p {
+    margin: 0;
+}
+
+p.top-head {
+    margin-top: 24px;
+    font-weight: bold;
+    grid-column: 1 / -1;
+    font-size: 2em;
+    padding-top: 12px;
+    color: #333;
+}
+
+p.top-content {
+    grid-column: 1 / -1;
+    font-size: 16px;
+    margin-top: 12px;
+    color: #555;
+    margin-bottom: 48px;
+}
+
+.bottom-wrap {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 30px;
+}
+
+.gtb {
+    grid-column: 2 / -2;
+    background-color: #fff;
+    height: 200px;
+    text-align: center;
+    padding: 56px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8%;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0, .1);
+}
+
+.gtb .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.gtb p {
+    font-size: 16px;
+    color: #888;
+}
+
+@media screen and (min-width: 768px) {
+    .top-wrap p {
+        text-align: center;
+    }
+
+    p.top-head {
+        font-weight: 0;
+        font-size: 3em;
+        grid-column: 4 / -4;
+    }
+    
+    p.top-content {
+        grid-column: 3 / -3;
+    }
+
+    .gtb {
+        padding: 56px 48px;
+    }
+
+    .student {
+        grid-column: 2 / 7;
+    }
+    
+    .teacher {
+        grid-column: 7 / 12;
+    }
+
+    .bottom {
+        padding: 0 80px;
+        transform: translateY(-96px);
+    }
+
+    .top {
+        padding: 48px 80px;
+    }
+
+    .top-wrapped {
+        grid-column: 3 / 10;
+        text-align: center;
+    }
+
+    .bottom-wrap {
+        grid-gap: 32px;
+    }
+}
