@@ -9,13 +9,13 @@ export default function () {
         <div className="GTB">
             <div className="bottom-wrap">
                 <div className="gtb student">
-                    <div class="title">Student</div>
+                    <div className="title">Student</div>
                     <p>Lorem Ipsum is simply dummy text of the printing
 and`typesetting industry.</p>
                     <Button>Atempt now</Button>
                 </div>
                 <div className="gtb teacher">
-                    <div class="title">Teacher</div>
+                    <div className="title">Teacher</div>
                     <p>Lorem Ipsum is simply dummy text of the printing
 and`typesetting industry.</p>
                     <Button>Questioning</Button>

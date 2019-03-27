@@ -5,6 +5,7 @@ import './App.css';
 
 import Home from './home/Home';
 import Register from './register/Register';
+import Login from './login/Login';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <BrowserRouter>
           <Route path="/" exact component={Home} />
           <Route path="/register" exact component={Register} />
+          <Route path="/login" exact component={Login}/>
         </BrowserRouter>
       </div>
     );

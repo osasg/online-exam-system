@@ -1,0 +1,25 @@
+.LoginForm {
+    background-color: #fff;
+    width: 256px;
+    padding: 48px 36px;
+    border-radius: 16px;
+}
+
+.LoginForm .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 56px;
+}
+
+.forgot {
+    color: blue;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 36px;
+}
+
+.login-btn {
+    display: flex;
+    flex-direction: column;
+}

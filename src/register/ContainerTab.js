@@ -2,34 +2,20 @@ import React from 'react';
 
 import './ContainerTab.css';
 import ButtonPrimary from '../buttons/ButtonPrimary';
+import InputForm from '../form/InputForm';
 
 export default function (props) {
     return (
         <div className="ContainerTab">
             <div className="boxes">
                 <div className="box-tab register active">
-                    <label htmlFor="username">
-                        USERNAME
-                        <input tabIndex="1" type="text" id="username" name="username" placeholder="quangdatpham"/>
-                    </label>
-                    <label htmlFor="password">
-                        PASSWORD
-                        <input tabIndex="2" type="password" id="password" name="password" placeholder="************"/>
-                    </label>
-                    <label htmlFor="password-confirm">
-                        CONFIRM
-                        <input tabIndex="3" type="password" id="password-confirm" name="passwordConfirm" placeholder="************"/>
-                    </label>
+                    <InputForm label="username" placeholder="quangdatpham" />
+                    <InputForm label="password" placeholder="************" />
+                    <InputForm label="confirm" placeholder="************" />
                 </div>
                 <div className="box-tab information">
-                    <label htmlFor="email">
-                        EMAIL
-                        <input type="text" id="email" name="email" placeholder="quangdatpham"/>
-                    </label>
-                    <label htmlFor="phonenumber">
-                        PHONE NUMBER
-                        <input type="phonenumber" id="phonenumber" name="phoneNumber" placeholder="************"/>
-                    </label>
+                    <InputForm label="email" placeholder="quangdat2000.pham@gmail.com" />
+                    <InputForm label="phone" placeholder="0383545450" />
                 </div>
                 <div className="box-tab verify">
                     <p>

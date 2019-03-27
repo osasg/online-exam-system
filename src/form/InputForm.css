@@ -1,0 +1,30 @@
+.InputForm label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.InputForm label input {
+    margin-top: 12px;
+    border: none;
+    background-color: inherit;
+}
+
+.InputForm label:before {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    display: block;
+    content: '';
+    background-color: #f2c600;
+    width: 100%;
+    height: 4px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 4px;
+}
+
+.label-name {
+    text-transform: uppercase;
+}
