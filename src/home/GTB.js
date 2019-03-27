@@ -2,7 +2,7 @@ import React from 'react';
 
 import './GTB.css';
 
-import Button from '../button/ButtonPrimary';
+import Button from '../buttons/ButtonPrimary';
 
 export default function () {
     return (
