@@ -1,0 +1,71 @@
+.bottom-wrap {
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 32px;
+}
+
+.gtb {
+    grid-column: 2 / -2;
+    background-color: #fff;
+    height: 200px;
+    text-align: center;
+    padding: 56px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8%;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0, .1);
+}
+
+.gtb .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.gtb p {
+    font-size: 16px;
+    color: #888;
+}
+
+@media screen and (min-width: 768px) {
+    .gtb {
+        padding: 56px 48px;
+    }
+
+    .student {
+        grid-column: 2 / 7;
+    }
+    
+    .teacher {
+        grid-column: 7 / 12;
+    }
+
+    .bottom {
+        padding: 0 80px;
+    }
+
+    .bottom-wrap {
+        grid-gap: 32px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .gtb {
+        padding: 80px 48px;
+    }
+    
+    .bottom-wrap {
+        grid-gap: 64px;
+    }
+
+    .student {
+        grid-column: 3 / 7;
+    }
+    
+    .teacher {
+        grid-column: 7 / 11;
+    }
+}

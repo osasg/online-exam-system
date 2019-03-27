@@ -1,4 +1,4 @@
-.Button {
+.ButtonPrimary {
     background-color: #f2c600;
     border: 2px solid #f2c600;
     padding: 12px 18px;
@@ -9,9 +9,10 @@
     outline: none;
     transition: .5s ease;
     cursor: pointer;
+    user-select: none;
 }
 
-.Button:hover {
+.ButtonPrimary:hover {
     background-color: #fff;
     color: #333;
 }
