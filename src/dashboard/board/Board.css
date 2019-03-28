@@ -5,7 +5,7 @@
 }
 
 .boarding-wrap,
-.exam-list-wrap {
+.task-wrap {
     grid-column: 1/-1;
 }
 
@@ -31,7 +31,7 @@
     }
 
     .boarding-wrap,
-    .exam-list-wrap {
+    .task-wrap {
         grid-column: 3/-3;
     }
 
@@ -50,7 +50,7 @@
 
 @media screen and (min-width: 1260px) {
     .boarding-wrap,
-    .exam-list-wrap {
+    .task-wrap {
         grid-column: 4/-4;
     }
 }

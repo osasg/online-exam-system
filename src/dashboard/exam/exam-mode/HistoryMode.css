@@ -1,0 +1,18 @@
+.HistoryMode {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+.score {
+    font-weight: bold;
+    color: #f2c600;
+    text-shadow: 0 0 4px rgba(0,0,0, .08);
+}
+
+.teacher {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: flex-end;
+}

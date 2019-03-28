@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './TeacherDashboard.css';
 
-import RightNavigateBar from '../group/RightNavigateBar';
 import Board from '../board/Board';
 
 class TeacherDashboard extends Component {
@@ -36,8 +35,10 @@ class TeacherDashboard extends Component {
     render() {
         return (
             <div className="TeacherDashboard">
-                <RightNavigateBar isTeacher={true}></RightNavigateBar>
-                <Board examList={this.state.examList}></Board>
+                <Board
+                    isTeacher={true}
+                    examList={this.state.examList}>
+                </Board>
             </div>
         );
     }

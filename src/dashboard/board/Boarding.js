@@ -8,9 +8,9 @@ export default function (props) {
     const { isTeacher } = props;
     let newDo;
     if (isTeacher) 
-        newDo = <ButtonPrimary>New enroll</ButtonPrimary>;
-    else
         newDo = <BWButtonBorder>New Exam</BWButtonBorder>
+    else
+        newDo = <ButtonPrimary>New enroll</ButtonPrimary>;
     return (
         <div className="Boarding">
             <div className="do">

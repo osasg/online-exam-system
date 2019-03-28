@@ -5,7 +5,7 @@
     width: 100%;
 }
 
-.participants {
+.TeacherMode .participants {
     flex: 1 1 0;
     display: none;
     justify-content: flex-end;
