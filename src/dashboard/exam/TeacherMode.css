@@ -1,0 +1,20 @@
+.TeacherMode {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+.participants {
+    flex: 1 1 0;
+    display: none;
+    justify-content: flex-end;
+    display: none;
+    margin: 0 16px;
+}
+
+@media screen and (min-width: 768px) {
+    .participants {
+        display: flex;
+    }
+}

@@ -1,50 +1,46 @@
 import React, { Component } from 'react';
 
-import './StudentDashboard.css';
+import './TeacherDashboard.css';
 
 import RightNavigateBar from '../group/RightNavigateBar';
 import Board from '../board/Board';
 
-class StudentDashboard extends Component {
+class TeacherDashboard extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            student: {},
             examList: [
                 {name: "Sketch Prototyping",
                 subject: "UI UX",
                 duedate: "Mar 12, 2018",
                 duration: "12 mins",
                 description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                participants: "23",
-                teacher: "Master Node"},
+                participants: "23"},
                 {name: "Sketch Prototyping",
                 subject: "UI UX",
                 duedate: "Mar 12, 2018",
                 duration: "12 mins",
                 description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                participants: "23",
-                teacher: "Master Node"},
+                participants: "23"},
                 {name: "Sketch Prototyping",
                 subject: "UI UX",
                 duedate: "Mar 12, 2018",
                 duration: "12 mins",
                 description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                participants: "23",
-                teacher: "Master Node"}
+                participants: "23"}
             ]
         };
     }
 
     render() {
         return (
-            <div className="StudentDashboard">
-                <RightNavigateBar></RightNavigateBar>
+            <div className="TeacherDashboard">
+                <RightNavigateBar isTeacher={true}></RightNavigateBar>
                 <Board examList={this.state.examList}></Board>
             </div>
         );
     }
 }
 
-export default StudentDashboard;
+export default TeacherDashboard;

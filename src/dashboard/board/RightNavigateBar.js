@@ -17,7 +17,9 @@ function RightNavigateBar() {
                     <div className="icon"></div>
                 </div>
             </div>
-            <div className="icon hambuger"></div>
+            <div className="hambuger">
+                <div className="icon"></div>
+            </div>
         </div>
     );
 }

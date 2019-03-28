@@ -1,16 +1,16 @@
-/* .board {
+.Board {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     margin: 0;
 }
 
-.boarding,
-.exam-list {
+.boarding-wrap,
+.exam-list-wrap {
     grid-column: 1/-1;
 }
 
-.boarding {
-    padding: 18px 12px;
+.boarding-wrap {
+    padding: 24px;
     display: flex;
     align-items: center;
 }
@@ -26,12 +26,12 @@
 }
 
 @media screen and (min-width: 768px) {
-    .board {
+    .Board {
         grid-gap: 32px;
     }
 
-    .boarding,
-    .exam-list {
+    .boarding-wrap,
+    .exam-list-wrap {
         grid-column: 3/-3;
     }
 
@@ -42,11 +42,15 @@
     .item {
         margin-bottom: 32px;
     }
+
+    .boarding-wrap {
+        padding: 24px 0;
+    }
 }
 
 @media screen and (min-width: 1260px) {
-    .boarding,
-    .exam-list {
+    .boarding-wrap,
+    .exam-list-wrap {
         grid-column: 4/-4;
     }
-} */
+}

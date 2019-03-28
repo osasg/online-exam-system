@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import './Exam.css';
-import ButtonPrimary from '../../buttons/ButtonPrimary';
+import StudentMode from './StudentMode';
+import TeacherMode from './TeacherMode';
 
 class Exam extends Component {
     constructor(props) {
@@ -24,19 +25,21 @@ class Exam extends Component {
 
         const { participants } = this.state;
 
+        let toolsBar;
+        if (teacher)
+            toolsBar = <StudentMode participants={participants} teacher={teacher} ></StudentMode>;
+        else 
+            toolsBar = <TeacherMode participants={participants}></TeacherMode>;
+
         return (
             <div className="Exam">
                 <div className="name">{name}</div>
-                <div class="information">
+                <div className="information">
                     {[subject, duedate, duration].join('-')}
                 </div>
                 <div className="description">{description}</div>
                 <div className="bottom">
-                    <div className="attempt">
-                        <ButtonPrimary>Attempt now</ButtonPrimary>
-                    </div>
-                    <div className="participants">{participants} participants</div>
-                    <div className="teacher">{teacher}</div>
+                    {toolsBar}
                 </div>
             </div>
         );

@@ -1,0 +1,15 @@
+.TopNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 72px;
+    background-color: #f2c600;
+    box-shadow: 0 2px 12px rgba(0,0,0, .2);
+}
+
+@media screen and (min-width: 768px) {
+    .TopNav {
+        display: none;
+    }
+}

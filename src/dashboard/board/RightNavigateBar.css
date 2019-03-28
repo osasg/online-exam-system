@@ -30,10 +30,12 @@
 }
 
 .hambuger {
-    display: block;
+    display: flex;
+    align-items: center;
+    height: 72px;
     position: fixed;
-    bottom: 4px;
-    left: 4px;
+    top: 0;
+    left: 0;
 }
 
 @media screen and (min-width: 768px) {

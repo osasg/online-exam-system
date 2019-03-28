@@ -1,0 +1,31 @@
+.UserLogin {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 12px 18px;
+    background-color: #f2c600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.avatar {
+    background-color: #ccc;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.fullname {
+    display: none;
+}
+
+@media screen and (min-width: 1440px) {
+    .fullname {
+        display: block;
+    }
+}
