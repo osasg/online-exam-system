@@ -1,0 +1,47 @@
+.navigator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+}
+
+.navigator {
+    display: none;
+    background-color: #f2c600;
+    width: 72px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.management {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 0;
+}
+
+.RightNavigateBar .icon {
+    width: 48px;
+    height: 48px;
+    background-color: #999;
+    margin: 12px;
+}
+
+.hambuger {
+    display: block;
+    position: fixed;
+    bottom: 4px;
+    left: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    .navigator {
+        display: flex;
+    }
+
+    .hambuger {
+        display: none;
+    }
+}

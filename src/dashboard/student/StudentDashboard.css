@@ -1,0 +1,52 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 0;
+}
+
+.boarding,
+.exam-list {
+    grid-column: 1/-1;
+}
+
+.boarding {
+    padding: 18px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.new-enroll {
+    flex: 1 1 0;
+}
+
+.filter {
+    padding: 0 4px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .board {
+        grid-gap: 32px;
+    }
+
+    .boarding,
+    .exam-list {
+        grid-column: 3/-3;
+    }
+
+    .filter {
+        font-size: 24px;
+    }
+
+    .item {
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (min-width: 1260px) {
+    .boarding,
+    .exam-list {
+        grid-column: 4/-4;
+    }
+}
