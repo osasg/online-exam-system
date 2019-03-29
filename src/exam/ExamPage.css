@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    height: calc(100% - 72px);
+    height: 100%;
     width: 72px;
     background-color: #f2c600;
     display: none;
@@ -15,16 +15,20 @@
 .bottom-control {
     position: fixed;
     bottom: 0;
-    right: 0;
+    left: 0;
     height: 72px;
     width: 100%;
-    background-color: #eee;
-    border-top: 2px solid #f2c600;
+    background-color: #f7f6f1;
+    /* border-top: 2px solid #f2c600; */
     box-shadow: 0 -5px 24px 0 rgba(56, 24, 17, .06);
 }
 
 @media screen and (min-width: 768px) {
     .right-control {
         display: block;
+    }
+
+    .bottom-control {
+        width: calc(100% - 72px);
     }
 }

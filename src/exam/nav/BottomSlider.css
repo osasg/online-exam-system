@@ -7,7 +7,12 @@
 
 .question-number {
     flex: 1 1 0;
-
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 
 .arrow img {

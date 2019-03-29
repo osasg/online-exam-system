@@ -6,11 +6,13 @@ import MultiQuestion from './view-mode/MultiQuestion';
 import BottomSlider from './nav/BottomSlider';
 import RightNav from './nav/RightNav';
 import OverviewExam from './view-mode/OverviewExam';
+import SingleQuestion from './view-mode/SingleQuestion';
 
 export default function () {
     return (
         <div className="ExamPage">
             <div className="view-mode">
+                <Route path="/exam/single-question" exact component={SingleQuestion}/>
                 <Route path="/exam/multi-question" exact component={MultiQuestion}/>
                 <Route path="/exam/overview" exact component={OverviewExam} />
             </div>
