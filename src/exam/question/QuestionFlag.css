@@ -1,0 +1,28 @@
+.QuestionFlagRow img,
+.QuestionFlagColumn img {
+    width: 24px;
+    height: 24px;
+    opacity: .7;
+}
+
+.QuestionFlagRow p,
+.QuestionFlagColumn p {
+    min-width: 80px;
+    color: #888;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.QuestionFlagColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.QuestionFlagRow {
+    display: flex;
+}
+
+.QuestionFlagRow p {
+    flex: 1 1 0;
+}

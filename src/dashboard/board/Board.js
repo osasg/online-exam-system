@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './Board.css';
 import ExamList from './list-group/ExamList';
 import Boarding from './Boarding';
-import RightNavigateBar from './navigate/RightNavigateBar';
+import LeftNavigateBar from './navigate/LeftNavigateBar';
 import HistoryList from './list-group/HistoryList';
 import Questioning from './questioning/Questioning';
 
@@ -50,7 +50,7 @@ class Board extends Component {
         }
         return (
             <div className={boardClass}>
-                <RightNavigateBar changeTask={this.changeTask} isTeacher={isTeacher}></RightNavigateBar>
+                <LeftNavigateBar changeTask={this.changeTask} isTeacher={isTeacher}></LeftNavigateBar>
                 <div className="boarding-wrap">
                     <Boarding isTeacher={isTeacher}></Boarding>
                 </div>

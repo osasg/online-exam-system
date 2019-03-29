@@ -1,0 +1,28 @@
+.view-mode {
+    margin-bottom: 72px;
+}
+
+.right-control {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: calc(100% - 72px);
+    width: 72px;
+    background-color: #f2c600;
+    display: none;
+}
+
+.bottom-control {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 72px;
+    width: 100%;
+    background-color: blue;
+}
+
+@media screen and (min-width: 768px) {
+    .right-control {
+        display: block;
+    }
+}

@@ -1,0 +1,28 @@
+.MultiQuestion {
+    padding: 12px 18px;
+}
+
+.MultiQuestion .question {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    border-bottom: 2px solid #f2c600;
+    max-width: 768px;
+    margin: auto;
+}
+
+.MultiQuestion .question-flag-wrap {
+    margin-bottom: 12px;
+}
+
+@media screen and (min-width: 768px) {
+    .MultiQuestion .question {
+        flex-direction: row;
+        border: none;
+    }
+
+    .MultiQuestion .question-flag-wrap {
+        margin-top: 8px;
+        padding: 0 12px;
+    }
+}

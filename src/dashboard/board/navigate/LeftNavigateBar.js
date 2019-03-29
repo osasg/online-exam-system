@@ -1,11 +1,13 @@
 import React from 'react';
 
-import './RightNavigateBar.css';
+import './LeftNavigateBar.css';
 import StudentManagement from '../student-group/StudentManagement';
 import TeacherManagement from '../teacher-group/TeacherManagement';
 import Hamburger from '../../../icons/hamburger.png';
+import Home from '../../../icons/home.png';
+import { Link } from 'react-router-dom';
 
-function RightNavigateBar(props) {
+function LeftNavigateBar(props) {
     const { isTeacher, changeTask } = props;
     let management;
     if (isTeacher)
@@ -14,10 +16,10 @@ function RightNavigateBar(props) {
         management = <StudentManagement changeTask={(t) => {changeTask(t); closeMenu();}}></StudentManagement>;
 
     return (
-        <div className="RightNavigateBar">
+        <div className="LeftNavigateBar">
             <div className="navigator">
                 <div className="home">
-                    <div className="icon"></div>
+                    <Link to="/"><img className="icon" src={Home} alt="home"></img></Link>
                 </div>
 
                 <div className="management">{management}</div>
@@ -45,4 +47,4 @@ function closeMenu() {
     navigator.classList.remove('open');
 }
 
-export default RightNavigateBar;
+export default LeftNavigateBar;

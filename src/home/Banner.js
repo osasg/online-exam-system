@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Banner.css';
 import BelowIcon from '../icons/below.png';
@@ -12,7 +13,7 @@ export default function () {
                     <span className="name">Examiner</span>
                 </div>
                 <div className="login">
-                    Login
+                    <Link to="login">Login</Link>
                 </div>
             </div>
             <div className="Banner-wrap">

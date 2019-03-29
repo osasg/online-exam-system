@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './StudentMode.css';
 import ButtonPrimary from '../../../buttons/ButtonPrimary';
@@ -9,7 +10,7 @@ function StudentMode(props) {
     return (
         <div className="StudentMode">
             <div className="attempt">
-                <ButtonPrimary>Attempt now</ButtonPrimary>
+                <Link to="/exam"><ButtonPrimary>Attempt now</ButtonPrimary></Link>
             </div>
             <div className="participants">{participants} participants</div>
             <div className="teacher">{teacher}</div>

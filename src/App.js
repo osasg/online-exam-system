@@ -7,6 +7,7 @@ import Home from './home/Home';
 import Register from './register/Register';
 import Login from './login/Login';
 import Dashboard from './dashboard/Dashboard';
+import ExamPage from './exam/ExamPage'
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login}/>
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/exam" exact component={ExamPage} />
         </BrowserRouter>
       </div>
     );

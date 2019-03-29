@@ -28,10 +28,10 @@
     }
 
     .question-form {
-        grid-column: 1/10;
+        grid-column: 1/9;
     }
 
     .all-question {
-        grid-column: 10/-1;
+        grid-column: 9/-1;
     }
 }

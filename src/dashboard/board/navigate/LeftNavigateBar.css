@@ -29,7 +29,7 @@
     flex: 1 1 0;
 }
 
-.RightNavigateBar .icon {
+.LeftNavigateBar .icon {
     width: 48px;
     height: 48px;
     opacity: .8;

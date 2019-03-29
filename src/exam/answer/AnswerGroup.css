@@ -1,0 +1,36 @@
+.AnswerGroup {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    color: #888;
+}
+
+.AnswerGroup label {
+    display: flex;
+    align-items: center;
+}
+
+.AnswerGroup input {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid #f2c600;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    outline: none;
+}
+
+.AnswerGroup input:checked:before {
+    display: block;
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background-color: #f2c600;
+}
