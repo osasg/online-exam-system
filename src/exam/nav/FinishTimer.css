@@ -1,0 +1,16 @@
+.FinishTimer {
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.FinishTimer .finish {
+    flex: 1 1 0;
+}
+
+.FinishTimer .timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f2c600;
+    pointer-events: none;
+}

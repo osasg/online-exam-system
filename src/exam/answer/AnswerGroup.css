@@ -8,6 +8,7 @@
 .AnswerGroup label {
     display: flex;
     align-items: center;
+    padding-bottom: 16px;
 }
 
 .AnswerGroup input {

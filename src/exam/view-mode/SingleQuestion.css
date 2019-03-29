@@ -14,7 +14,16 @@
 }
 
 .SingleQuestion .content {
-    padding: 128px 48px;
+    padding: 48px;
+    overflow-y: scroll;
+}
+
+.SingleQuestion .finish-timer-wrap {
+    margin-bottom: 36px;
+}
+
+.QuestionFlagRow p {
+    font-size: 24px;
 }
 
 .SingleQuestion label {

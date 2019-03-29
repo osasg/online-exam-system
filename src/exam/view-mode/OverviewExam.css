@@ -1,6 +1,17 @@
 .OverviewExam {
+    margin-right: 72px;
+    height: calc(100vh - 72px);
+    overflow-y: scroll;
+}
+
+.OverviewExam .finish-timer-wrap {
     max-width: 768px;
-    margin: 144px auto;
+    margin: 48px auto;
+}
+
+.qa-group {
+    max-width: 768px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     padding: 0 24px;
@@ -22,5 +33,9 @@
 @media screen and (min-width: 768px) {
     .qa {
         font-size: 36px;
+    }
+
+    .OverviewExam {
+        margin-right: 72px;
     }
 }

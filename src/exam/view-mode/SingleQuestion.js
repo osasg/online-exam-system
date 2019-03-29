@@ -3,6 +3,7 @@ import React from 'react';
 import './SingleQuestion.css';
 import QuestionFlagRow from '../question/QuestionFlagRow';
 import QuestionTemplate from '../question/QuestionTemplate';
+import FinishTimer from '../nav/FinishTimer';
 
 export default function (props) {
     return (
@@ -11,6 +12,9 @@ export default function (props) {
                 {/* <img src="https://source.unsplash.com/640x800" /> */}
             </div>
             <div className="content">
+                <div className="finish-timer-wrap">
+                    <FinishTimer></FinishTimer>
+                </div>
                 <QuestionFlagRow questionNumber="3"></QuestionFlagRow>
                 <QuestionTemplate
                         questionNumber="3"

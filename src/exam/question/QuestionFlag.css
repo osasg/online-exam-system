@@ -3,11 +3,14 @@
     width: 24px;
     height: 24px;
     opacity: .7;
+    z-index: -1;
 }
 
 .QuestionFlagRow p,
 .QuestionFlagColumn p {
-    min-width: 80px;
+    user-select: none;
+    text-align: center;
+    min-width: 120px;
     color: #888;
     margin-top: 0;
     margin-bottom: 8px;
