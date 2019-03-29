@@ -5,7 +5,14 @@
     height: 100%;
     width: 72px;
     background-color: #f2c600;
-    display: none;
+    transition: .3s ease;
+    transform: translateX(100%);
+}
+
+.right-control.open {
+    width: 100vw;
+    display: block;
+    transform: translateX(0);
 }
 
 .bottom-control {
@@ -19,9 +26,32 @@
     box-shadow: 0 -5px 24px 0 rgba(56, 24, 17, .06);
 }
 
+.ExamPage .hamburger {
+    position: fixed;
+    right: 12px;
+    bottom: 84px;
+    background-color: #f2c600;
+    border-radius: 50%;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ExamPage .hamburger img {
+    width: 32px;
+    height: 32px;
+    opacity: .8;
+}
+
 @media screen and (min-width: 768px) {
     .right-control {
-        display: block;
+        transform: translateX(0);
+    }
+
+    .ExamPage .hamburger {
+        display: none;
+        pointer-events: none;
     }
 
     .bottom-control {

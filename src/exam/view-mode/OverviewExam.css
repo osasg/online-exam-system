@@ -1,5 +1,5 @@
 .OverviewExam {
-    margin-right: 72px;
+    /* margin-right: 72px; */
     height: calc(100vh - 72px);
     overflow-y: scroll;
 }
@@ -7,6 +7,7 @@
 .OverviewExam .finish-timer-wrap {
     max-width: 768px;
     margin: 48px auto;
+    padding: 0 24px;
 }
 
 .qa-group {

@@ -10,18 +10,18 @@
     flex: 1 1 0;
     display: flex;
     align-items: center;
-    padding-bottom: 72px;
+    padding-bottom: 128px;
 }
 
 .RightNav .management a {
     outline: none;
     text-decoration: none;
+    margin-bottom: 12px;
 }
 
 .RightNav .management img {
     width: 40px;
     opacity: .6;
-    margin-bottom: 12px;
     background-color: rgba(0,0,0, .05);
     padding: 8px;
     border-radius: 4px;

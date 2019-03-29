@@ -1,8 +1,9 @@
 .AnswerGroup {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     user-select: none;
-    color: #888;
+    color: #666;
 }
 
 .AnswerGroup label {
@@ -19,6 +20,7 @@
     height: 24px;
     background-color: #fff;
     border-radius: 4px;
+    margin: 0;
     margin-right: 12px;
     display: flex;
     justify-content: center;

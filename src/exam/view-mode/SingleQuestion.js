@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import './SingleQuestion.css';
 import QuestionFlagRow from '../question/QuestionFlagRow';
@@ -6,6 +7,11 @@ import QuestionTemplate from '../question/QuestionTemplate';
 import FinishTimer from '../nav/FinishTimer';
 
 export default function (props) {
+    if (window.innerWidth < 768) {
+        alert('Can\'t open this mode because your device is too small (device-width < 768px)\nDon\'t worry!');
+        return <Redirect to="/exam/multi-question"></Redirect>;
+    }
+
     return (
         <div className="SingleQuestion">
             <div className="file-attach">

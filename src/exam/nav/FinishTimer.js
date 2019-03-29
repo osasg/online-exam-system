@@ -9,7 +9,7 @@ export default function (props) {
             <div className="finish">
                 <ButtonPrimary>Finish attempt</ButtonPrimary>
             </div>
-            <span class="timer">12 : 26</span>
+            <span className="timer">12 : 26</span>
         </div>
     );
 }
