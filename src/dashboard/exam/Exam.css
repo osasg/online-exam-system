@@ -23,13 +23,13 @@
     margin: 0 16px;
 }
 
-.bottom {
+.Exam .bottom {
     display: flex;
     align-items: center;
     padding: 0;
 }
 
-.teacher {
+.Exam .teacher {
     flex: 1 1 0;
     display: flex;
     justify-content: flex-end;

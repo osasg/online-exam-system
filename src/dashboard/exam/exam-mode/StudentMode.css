@@ -5,11 +5,11 @@
     width: 100%;
 }
 
-.participants {
+.StudentMode .participants {
     display: none;
     margin: 0 16px;
 }
-.teacher {
+.StudentMode .teacher {
     flex: 1 1 0;
     display: flex;
     justify-content: flex-end;

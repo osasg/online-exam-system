@@ -1,4 +1,5 @@
 .UserLogin {
+    z-index: 9999;
     position: fixed;
     top: 0;
     right: 0;
@@ -13,7 +14,7 @@
 }
 
 .avatar {
-    background-color: #ccc;
+    background-color: #ddd;
     border: 4px solid #fff;
     border-radius: 50%;
     width: 40px;

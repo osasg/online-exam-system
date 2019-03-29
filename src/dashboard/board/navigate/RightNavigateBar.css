@@ -1,20 +1,25 @@
 .navigator {
+    z-index: 9999;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     padding: 12px 0;
     box-sizing: border-box;
-}
-
-.navigator {
     display: none;
     background-color: #f2c600;
-    width: 72px;
+    width: 100vw;
     height: 100vh;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transform: translateY(-100%);
+    transition: transform .3s ease;
+}
+
+.navigator.open {
+    transform: translateY(0);
 }
 
 .management {
@@ -27,10 +32,12 @@
 .RightNavigateBar .icon {
     width: 48px;
     height: 48px;
-    background-color: #999;
+    opacity: .8;
+    /* background-color: #999; */
 }
 
-.hambuger {
+.hamburger {
+    z-index: 9999;
     height: 72px;
     position: fixed;
     top: 12px;
@@ -39,10 +46,11 @@
 
 @media screen and (min-width: 768px) {
     .navigator {
-        display: flex;
+        width: 72px;
+        transform: translateY(0);
     }
 
-    .hambuger {
+    .hamburger {
         display: none;
     }
 }

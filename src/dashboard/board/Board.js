@@ -5,6 +5,7 @@ import ExamList from './list-group/ExamList';
 import Boarding from './Boarding';
 import RightNavigateBar from './navigate/RightNavigateBar';
 import HistoryList from './list-group/HistoryList';
+import Questioning from './questioning/Questioning';
 
 const teacherTask = [ 'manage', 'questioning' ];
 const studentTask = [ 'manage', 'history' ];
@@ -30,23 +31,25 @@ class Board extends Component {
     render() {
         const { examList, isTeacher, historyList } = this.props;
         const { currentTask } = this.state;
-        let task;
+        const current = isTeacher ? teacherTask[currentTask] : studentTask[currentTask];
+        let task, boardClass = 'Board';
 
-        switch (isTeacher ? teacherTask[currentTask] : studentTask[currentTask]) {
+        switch (current) {
             case 'manage':
                 task = <ExamList examList={examList}></ExamList>;
                 break;
             case 'questioning':
-                task = 'Questioning';
+                task = <Questioning></Questioning>;
+                boardClass += ' task-questioning';
                 break;
             case 'history':
                 task = <HistoryList historyList={historyList}></HistoryList>;
                 break;
             default:
-                task = 'Not found task';
+                task = 'Not found any task';
         }
         return (
-            <div className="Board">
+            <div className={boardClass}>
                 <RightNavigateBar changeTask={this.changeTask} isTeacher={isTeacher}></RightNavigateBar>
                 <div className="boarding-wrap">
                     <Boarding isTeacher={isTeacher}></Boarding>

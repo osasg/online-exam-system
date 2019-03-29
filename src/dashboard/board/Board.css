@@ -35,6 +35,10 @@
         grid-column: 3/-3;
     }
 
+    .task-questioning .task-wrap {
+        grid-column: 2/-1;
+    }
+
     .filter {
         font-size: 24px;
     }

@@ -1,0 +1,10 @@
+.ImageForm label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.label-name {
+    text-transform: uppercase;
+}

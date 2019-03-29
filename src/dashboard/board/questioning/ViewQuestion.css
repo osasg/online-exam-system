@@ -1,0 +1,33 @@
+.ViewQuestion {
+    background-color: #fff;
+    padding: 24px 36px;
+    border-bottom: 1px solid #f2c600;
+}
+
+.answer-wrap p {
+    color: #888;
+}
+
+.question-number {
+    color: #555;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.question-wrap p {
+    margin-top: 4px;
+}
+
+.action button {
+    padding-left: 0;
+    color: #666;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 992px) {
+    .ViewQuestion {
+        margin-bottom: 24px;
+        /* border: 1px solid #f2c600; */
+        border-radius: 12px;
+    }
+}

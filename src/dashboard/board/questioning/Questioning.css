@@ -1,0 +1,37 @@
+.Questioning {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 32px;
+    z-index: -100000;
+}
+
+.question-form {
+    grid-column: 1/-1;
+    min-height: 500px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 24px 36px;
+}
+
+.all-question {
+    grid-column: 1/-1;
+}
+
+@media screen and (min-width: 992px) {
+    .Questioning {
+        padding-right: 32px;
+    }
+    .question-form {
+        /* border: 1px solid #f2c600; */
+        border-radius: 12px;
+        padding: 48px 64px;
+    }
+
+    .question-form {
+        grid-column: 1/10;
+    }
+
+    .all-question {
+        grid-column: 10/-1;
+    }
+}
