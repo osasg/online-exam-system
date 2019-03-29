@@ -13,6 +13,11 @@
     padding-bottom: 72px;
 }
 
+.RightNav .management a {
+    outline: none;
+    text-decoration: none;
+}
+
 .RightNav .management img {
     width: 40px;
     opacity: .6;

@@ -1,0 +1,26 @@
+.OverviewExam {
+    max-width: 768px;
+    margin: 144px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 24px;
+}
+
+.qa {
+    flex: 1 1 33.33%;
+    font-size: 24px;
+    color: #888;
+    padding: 8px 0;
+    user-select: none;
+    cursor: pointer;
+}
+
+.qa.non-answer {
+    color: red;
+}
+
+@media screen and (min-width: 768px) {
+    .qa {
+        font-size: 36px;
+    }
+}
