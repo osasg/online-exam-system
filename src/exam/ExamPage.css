@@ -18,7 +18,9 @@
     right: 0;
     height: 72px;
     width: 100%;
-    background-color: blue;
+    background-color: #eee;
+    border-top: 2px solid #f2c600;
+    box-shadow: 0 -5px 24px 0 rgba(56, 24, 17, .06);
 }
 
 @media screen and (min-width: 768px) {

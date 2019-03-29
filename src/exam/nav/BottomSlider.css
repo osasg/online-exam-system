@@ -1,0 +1,36 @@
+.BottomSlider {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.question-number {
+    flex: 1 1 0;
+
+}
+
+.arrow img {
+    width: 48px;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.arrow img:hover {
+    transform: scale(1.1);
+    opacity: .8;
+}
+
+.BottomSlider .number {
+    padding: 12px 18px;
+    text-decoration: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #888;
+}
+
+.BottomSlider .number.active {
+    background-color: #f2c600;
+    color: #333;
+}
