@@ -19,7 +19,20 @@
     margin-bottom: 36px;
 }
 
-.login-btn {
+.login-btn > a {
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+}
+
+.goto-register {
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    color: #888;
+}
+
+.goto-register a {
+    margin-left: 4px;
+    color: blue;
 }

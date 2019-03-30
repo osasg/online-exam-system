@@ -4,7 +4,7 @@ import './Questioning.css';
 import InputForm from '../../../form/InputForm';
 import ButtonPrimary from '../../../buttons/ButtonPrimary';
 import BWButton from '../../../buttons/BWButton';
-import ViewQuestion from './ViewQuestion';
+import AllQuestion from './AllQuestion';
 
 export default function () {
     return (
@@ -22,34 +22,8 @@ export default function () {
                     <BWButton>Clear</BWButton>
                 </div>
             </div>
-            <div className="all-question">
-                <ViewQuestion
-                    questionNumber="0"
-                    question="Lorem Ipsum is simply dummy text of the
-        printing and typesetting industry."
-                    answerA="Lorem ipsum"
-                    answerB="Lorem ipsum"
-                    answerC="Lorem ipsum"
-                    answerD="Lorem ipsum"
-                ></ViewQuestion>
-                <ViewQuestion
-                    questionNumber="0"
-                    question="Lorem Ipsum is simply dummy text of the
-        printing and typesetting industry."
-                    answerA="Lorem ipsum"
-                    answerB="Lorem ipsum"
-                    answerC="Lorem ipsum"
-                    answerD="Lorem ipsum"
-                ></ViewQuestion>
-                <ViewQuestion
-                    questionNumber="0"
-                    question="Lorem Ipsum is simply dummy text of the
-        printing and typesetting industry."
-                    answerA="Lorem ipsum"
-                    answerB="Lorem ipsum"
-                    answerC="Lorem ipsum"
-                    answerD="Lorem ipsum"
-                ></ViewQuestion>
+            <div className="all-question-wrap">
+                <AllQuestion></AllQuestion>
             </div>
         </div>
     );

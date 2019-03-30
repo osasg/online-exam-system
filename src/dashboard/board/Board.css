@@ -1,18 +1,12 @@
-.Board {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    margin: 0;
-}
-
 .boarding-wrap,
 .task-wrap {
-    grid-column: 1/-1;
+    margin: auto;
 }
 
 .boarding-wrap {
-    padding: 24px;
     display: flex;
     align-items: center;
+    height: 80px;
 }
 
 .new-enroll {
@@ -27,16 +21,17 @@
 
 @media screen and (min-width: 768px) {
     .Board {
-        grid-gap: 32px;
+        margin-left: 72px;
     }
 
-    .boarding-wrap,
-    .task-wrap {
-        grid-column: 3/-3;
+    .board-container {
+        margin: 0 auto;
+        max-width: 768px;
+        padding: 0 24px;
     }
 
-    .task-questioning .task-wrap {
-        grid-column: 2/-1;
+    .Board.task-questioning .board-container {
+        max-width: max-content;
     }
 
     .filter {
@@ -46,15 +41,10 @@
     .item {
         margin-bottom: 32px;
     }
-
-    .boarding-wrap {
-        padding: 24px 0;
-    }
 }
 
 @media screen and (min-width: 1260px) {
-    .boarding-wrap,
-    .task-wrap {
-        grid-column: 4/-4;
+    .board-container {
+        padding: 0 48px;
     }
 }

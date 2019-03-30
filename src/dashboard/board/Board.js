@@ -50,12 +50,14 @@ class Board extends Component {
         }
         return (
             <div className={boardClass}>
-                <LeftNavigateBar changeTask={this.changeTask} isTeacher={isTeacher}></LeftNavigateBar>
-                <div className="boarding-wrap">
-                    <Boarding isTeacher={isTeacher}></Boarding>
-                </div>
-                <div className="task-wrap">
-                    {task}
+                <div className="board-container">
+                    <LeftNavigateBar changeTask={this.changeTask} isTeacher={isTeacher}></LeftNavigateBar>
+                    <div className="boarding-wrap">
+                        <Boarding isTeacher={isTeacher}></Boarding>
+                    </div>
+                    <div className="task-wrap">
+                        {task}
+                    </div>
                 </div>
             </div>
         );

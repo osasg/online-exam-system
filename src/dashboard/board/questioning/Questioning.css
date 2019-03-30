@@ -3,6 +3,12 @@
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 32px;
     z-index: -100000;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 48px;
+    box-sizing: border-box;
+    height: calc(100vh - 80px);
+    overflow: hidden;
 }
 
 .question-form {
@@ -13,14 +19,12 @@
     padding: 24px 36px;
 }
 
-.all-question {
+.all-question-wrap {
     grid-column: 1/-1;
+    overflow-y: scroll;
 }
 
 @media screen and (min-width: 992px) {
-    .Questioning {
-        padding-right: 32px;
-    }
     .question-form {
         /* border: 1px solid #f2c600; */
         border-radius: 12px;
@@ -31,7 +35,7 @@
         grid-column: 1/9;
     }
 
-    .all-question {
+    .all-question-wrap {
         grid-column: 9/-1;
     }
 }

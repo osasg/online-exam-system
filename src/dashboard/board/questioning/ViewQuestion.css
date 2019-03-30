@@ -26,8 +26,7 @@
 
 @media screen and (min-width: 992px) {
     .ViewQuestion {
-        margin-bottom: 24px;
-        /* border: 1px solid #f2c600; */
+        border: none;
         border-radius: 12px;
     }
 }
