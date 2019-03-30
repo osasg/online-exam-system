@@ -5,7 +5,7 @@
     left: 0;
     width: 100vw;
     height: 72px;
-    background-color: #f2c600;
+    background-color: var(--bg-color);
     box-shadow: 0 2px 12px rgba(0,0,0, .2);
 }
 

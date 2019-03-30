@@ -15,7 +15,7 @@
 .AnswerGroup input {
     -webkit-appearance: none;
     appearance: none;
-    border: 2px solid #f2c600;
+    border: 2px solid var(--bg-color);
     width: 24px;
     height: 24px;
     background-color: #fff;
@@ -35,5 +35,5 @@
     width: 16px;
     height: 16px;
     border-radius: 2px;
-    background-color: #f2c600;
+    background-color: var(--bg-color);
 }

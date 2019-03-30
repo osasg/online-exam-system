@@ -1,10 +1,11 @@
 .Banner {
-    background-color: #f2c600;
+    background-color: var(--bg-color);
     padding: 24px;
     height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .menubar {
@@ -26,7 +27,7 @@
 }
 
 .login {
-    background-color: #f2c600;
+    background-color: var(--bg-color);
     padding: 8px 12px;
     border-radius: 4px;
     border: 1px solid #866100;
@@ -39,36 +40,26 @@
     flex: 1 1 0;
 }
 
-.Banner-wrap {
-    flex: 1 1 0;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 1fr 1fr;
+.banner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 48px 0 96px 0;
     text-align: center;
+    color: #473800;
+    text-shadow: 0 0 4px rgba(0,0,0, .1);
+    font-family: Courier, monospace;
 }
 
-.Banner-wrap p {
-    margin: 0;
-}
-
-p.Banner-head {
-    grid-row: 1;
-    grid-column: 1/-1;
-    margin-top: 24px;
+.Banner .head {
+    font-size: 48px;
     font-weight: bold;
-    align-self: end;
-    font-size: 2em;
-    padding-top: 12px;
-    color: #333;
 }
 
-p.Banner-content {
-    grid-row: 2;
-    grid-column: 1/-1;
-    font-size: 16px;
-    margin-top: 12px;
-    color: #555;
-    margin-bottom: 48px;
+.Banner .content {
+    font-size: 24px;
+    margin-top: 0;
 }
 
 .see-below {
@@ -86,18 +77,14 @@ p.Banner-content {
 @media screen and (min-width: 768px) {
     .Banner {
         padding: 48px 80px;
-        height: 486px;
-    }
-
-    p.Banner-head {
-        font-size: 3em;
-    }
-
-    .Banner-wrap p {
-        grid-column: 4/-4;   
+        height: 50vh;
     }
 
     .see-below {
         display: none;
+    }
+
+    .banner-container {
+        margin: 0;
     }
 }

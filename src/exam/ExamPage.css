@@ -4,7 +4,7 @@
     right: 0;
     height: 100%;
     width: 72px;
-    background-color: #f2c600;
+    background-color: var(--bg-color);
     transition: .3s ease;
     transform: translateX(100%);
 }
@@ -22,7 +22,7 @@
     height: 72px;
     width: 100%;
     background-color: #f7f6f1;
-    /* border-top: 2px solid #f2c600; */
+    /* border-top: 2px solid var(--bg-color); */
     box-shadow: 0 -5px 24px 0 rgba(56, 24, 17, .06);
 }
 
@@ -30,7 +30,7 @@
     position: fixed;
     right: 12px;
     bottom: 84px;
-    background-color: #f2c600;
+    background-color: var(--bg-color);
     border-radius: 50%;
     padding: 12px;
     display: flex;

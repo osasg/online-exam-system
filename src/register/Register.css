@@ -1,6 +1,6 @@
 .nav {
     height: 100px;
-    background-color: #f2c600;
+    background-color: var(--bg-color);
 }
 
 .form-container {

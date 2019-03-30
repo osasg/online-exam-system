@@ -4,7 +4,7 @@
     top: 0;
     right: 0;
     padding: 12px 18px;
-    background-color: #f2c600;
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;

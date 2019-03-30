@@ -7,7 +7,7 @@
 
 .HistoryMode .score {
     font-weight: bold;
-    color: #f2c600;
+    color: var(--bg-color);
     text-shadow: 0 0 4px rgba(0,0,0, .08);
 }
 

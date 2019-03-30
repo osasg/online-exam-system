@@ -1,22 +1,23 @@
 .bottom-wrap {
-    margin: 32px 0;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 32px;
 }
 
 .gtb {
-    grid-column: 2 / -2;
+    grid-column: 1 / -1;
     background-color: #fff;
     height: 200px;
     text-align: center;
-    padding: 56px 0;
+    padding: 56px 36px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: 8%;
     box-shadow: 0 2px 8px 0 rgba(0,0,0, .1);
+}
+
+.gtb.student {
+    border-bottom: 1px solid var(--bg-color);
 }
 
 .gtb .title {
@@ -31,8 +32,17 @@
 }
 
 @media screen and (min-width: 768px) {
+    .bottom-wrap {
+        grid-gap: 32px;
+    }
+    
     .gtb {
-        padding: 56px 48px;
+        border-radius: 24px;
+        padding: 48px 48px;
+    }
+
+    .gtb.student {
+        border-bottom: none;
     }
 
     .student {
@@ -42,25 +52,9 @@
     .teacher {
         grid-column: 7 / 12;
     }
-
-    .bottom {
-        padding: 0 80px;
-    }
-
-    .bottom-wrap {
-        grid-gap: 32px;
-    }
 }
 
 @media screen and (min-width: 1024px) {
-    .gtb {
-        padding: 80px 48px;
-    }
-    
-    .bottom-wrap {
-        grid-gap: 64px;
-    }
-
     .student {
         grid-column: 3 / 7;
     }

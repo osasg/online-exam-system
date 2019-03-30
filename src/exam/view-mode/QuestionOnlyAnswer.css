@@ -14,7 +14,7 @@
     flex-direction: column;
     padding: 36px 0;
     margin: 0 24px;
-    border-bottom: 1px solid #f2c600;
+    border-bottom: 1px solid var(--bg-color);
 }
 
 .QuestionOnlyAnswer .q:last-child {

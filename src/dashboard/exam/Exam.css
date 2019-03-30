@@ -1,7 +1,7 @@
 .Exam {
     background-color: #fff;
     padding: 24px 36px;
-    border-bottom: 1px solid #f2c600;
+    border-bottom: 1px solid var(--bg-color);
 }
 
 .name {
@@ -38,7 +38,7 @@
 @media screen and (min-width: 768px) {
     .Exam {
         padding: 36px 48px;
-        border: 1px solid #f2c600;
+        border: 1px solid var(--bg-color);
         border-radius: 12px;
     }
 

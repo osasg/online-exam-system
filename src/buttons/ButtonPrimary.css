@@ -1,6 +1,6 @@
 .ButtonPrimary {
-    background-color: #f2c600;
-    border: 2px solid #f2c600;
+    background-color: var(--bg-color);
+    border: 2px solid var(--bg-color);
     padding: 12px 18px;
     border-radius: 4px;
     color: #fff;

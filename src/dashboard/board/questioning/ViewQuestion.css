@@ -1,7 +1,7 @@
 .ViewQuestion {
     background-color: #fff;
     padding: 24px 36px;
-    border-bottom: 1px solid #f2c600;
+    border-bottom: 1px solid var(--bg-color);
 }
 
 .answer-wrap p {

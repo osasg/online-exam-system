@@ -32,7 +32,7 @@
     }
     
     .question-form {
-        /* border: 1px solid #f2c600; */
+        /* border: 1px solid var(--bg-color); */
         border-radius: 12px;
         padding: 48px 64px;
         overflow-y: auto;

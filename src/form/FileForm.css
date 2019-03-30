@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -36,5 +37,6 @@
 
     .FileForm .select-file {
         flex-direction: row;
+        align-items: center;
     }
 }

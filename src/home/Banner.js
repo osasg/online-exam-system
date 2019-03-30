@@ -9,23 +9,27 @@ export default function () {
         <div className="Banner">
             <div className="menubar">
                 <div className="brand">
-                    <span className="logo">IC</span>
+                    <span className="logo">EX</span>
                     <span className="name">Examiner</span>
                 </div>
                 <div className="login">
                     <Link to="login">Login</Link>
                 </div>
             </div>
-            <div className="Banner-wrap">
-                <p className="Banner-head">The best way to taking online exam</p>
-                <p className="Banner-content">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy
-text of the printing and typesetting industry.
+            <div className="banner-container">
+                <h1 className="head">Online Examing</h1>
+                <p className="content">
+                    The best way to taking online exam
                 </p>
             </div>
             <div className="see-below">
-                <img src={BelowIcon} alt="See below" />
+                <img onClick={scrollDown} src={BelowIcon} alt="See below" />
             </div>
         </div>
     );
+}
+
+function scrollDown() {
+    console.log('scroll');
+    window.scroll(0, window.screen.availHeight);
 }

@@ -1,5 +1,10 @@
 @media screen and (min-width: 768px) {
-    /* .GTB {
-        transform: translateY(-96px);
-    } */
+    .Home {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .GTB {
+        transform: translateY(-56px);
+    }
 }

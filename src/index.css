@@ -1,3 +1,12 @@
+:root {
+  /* --bg-color: #FFDD23; */
+  --bg-color: #fec235;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -29,7 +38,7 @@ code {
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #f2c600; 
+    background: var(--bg-color); 
     border-radius: 5px;
   }
 
