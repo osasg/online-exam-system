@@ -7,6 +7,7 @@ import BottomSlider from './nav/BottomSlider';
 import RightNav from './nav/RightNav';
 import OverviewExam from './view-mode/OverviewExam';
 import SingleQuestion from './view-mode/SingleQuestion';
+import QuestionOnlyAnswer from './view-mode/QuestionOnlyAnswer';
 import Hamburger from '../icons/hamburger.png';
 
 export default function () {
@@ -15,6 +16,7 @@ export default function () {
             <div className="view-mode">
                 <Route path="/exam/single-question" exact component={SingleQuestion}/>
                 <Route path="/exam/multi-question" exact component={MultiQuestion}/>
+                <Route path="/exam/question-answer" exact component={QuestionOnlyAnswer}/>
                 <Route path="/exam/overview" exact component={OverviewExam} />
             </div>
             <div onClick={closeRightControl} className="right-control">

@@ -1,0 +1,43 @@
+.QuestionOnlyAnswer {
+    height: calc(100vh - 72px);
+    overflow-y: scroll;
+}
+
+.QuestionOnlyAnswer .question-group {
+    max-width: 768px;
+    margin: 48px auto;
+}
+
+.QuestionOnlyAnswer .q {
+    display: flex;
+    flex-direction: column;
+    padding: 36px 0;
+    margin: 0 24px;
+    border-bottom: 1px solid #f2c600;
+}
+
+.QuestionOnlyAnswer .q:last-child {
+    border: none;
+}
+
+.QuestionOnlyAnswer .q-n {
+    margin: 4px 36px 12px 0;
+}
+
+.QuestionOnlyAnswer .q-a p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: #666;
+}
+
+.QuestionOnlyAnswer .q-a p:nth-child(2) {
+    margin-top: 8px;
+    color: #666;
+}
+
+@media screen and (min-width: 768px) {
+    .QuestionOnlyAnswer {
+        margin-right: 72px;
+    }
+}

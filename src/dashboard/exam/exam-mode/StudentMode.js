@@ -10,7 +10,7 @@ function StudentMode(props) {
     return (
         <div className="StudentMode">
             <div className="attempt">
-                <Link to="/exam/single-question"><ButtonPrimary>Attempt now</ButtonPrimary></Link>
+                <Link to="/exam/multi-question"><ButtonPrimary>Attempt now</ButtonPrimary></Link>
             </div>
             <div className="participants">{participants} participants</div>
             <div className="teacher">{teacher}</div>
