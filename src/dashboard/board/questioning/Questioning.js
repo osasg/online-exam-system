@@ -5,6 +5,7 @@ import InputForm from '../../../form/InputForm';
 import ButtonPrimary from '../../../buttons/ButtonPrimary';
 import BWButton from '../../../buttons/BWButton';
 import AllQuestion from './AllQuestion';
+import FileForm from '../../../form/FileForm';
 
 export default function () {
     return (
@@ -16,6 +17,8 @@ export default function () {
                     <InputForm label="Answer B" placeholder="Lorem Ipsum."></InputForm>
                     <InputForm label="Answer C" placeholder="Lorem Ipsum."></InputForm>
                     <InputForm label="Answer D" placeholder="Lorem Ipsum."></InputForm>
+                    <InputForm label="Right Answer" placeholder="a b c d"></InputForm>
+                    <FileForm label="File attach"></FileForm>
                 </div>
                 <div className="action-group">
                     <ButtonPrimary>Add</ButtonPrimary>

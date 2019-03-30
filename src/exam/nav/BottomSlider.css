@@ -5,7 +5,7 @@
     padding: 0 8px;
 }
 
-.question-number {
+.BottomSlider .question-number {
     flex: 1 1 0;
     overflow: hidden;
     overflow-x: scroll;

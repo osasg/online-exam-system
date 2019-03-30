@@ -19,7 +19,7 @@ export default function (props) {
                 <p>C. {answerC}</p>
                 <p>D. {answerD}</p>
             </div>
-            <div class="action">
+            <div className="action">
                 <BWButton>Edit</BWButton>
                 <BWButton>Delete</BWButton>
             </div>

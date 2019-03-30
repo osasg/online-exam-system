@@ -8,7 +8,7 @@ export default function () {
         <div className="AllQuestion">
             {
                 Array.from({ length: 12 }).map((v, i) => 
-                    <div class="vq-wrap" key={i}>
+                    <div className="vq-wrap" key={i}>
                         <ViewQuestion
                             questionNumber={i}
                             question="Lorem Ipsum is simply dummy text of the

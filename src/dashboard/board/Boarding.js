@@ -16,12 +16,12 @@ export default function (props) {
             <div className="do">
                 {newDo}
             </div>
-            <div className="filter">
+            {/* <div className="filter">
                 Teacher
             </div>
             <div className="filter">
                 Student
-            </div>
+            </div> */}
         </div>
     );
 }

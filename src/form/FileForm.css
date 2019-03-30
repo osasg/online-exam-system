@@ -1,0 +1,40 @@
+.FileForm label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    position: relative;
+    user-select: none;
+}
+
+.FileForm .label-name {
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.FileForm input[type="file"] {
+    display: none;
+}
+
+.FileForm .file-name {
+    color: #888;
+    text-decoration: underline;
+    margin-top: 12px;
+}
+
+.FileForm .select-file {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+    .FileForm .file-name {
+        margin-left: 12px;
+        margin-top: 0;
+    }
+
+    .FileForm .select-file {
+        flex-direction: row;
+    }
+}

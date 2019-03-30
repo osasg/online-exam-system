@@ -3,12 +3,14 @@
     flex-direction: column;
     margin-bottom: 48px;
     position: relative;
+    user-select: none;
 }
 
 .InputForm label input {
     margin-top: 12px;
     border: none;
     background-color: inherit;
+    outline: none;
 }
 
 .InputForm label:before {

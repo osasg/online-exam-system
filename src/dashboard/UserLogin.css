@@ -14,18 +14,21 @@
 }
 
 .avatar {
-    background-color: #ddd;
+    background-color: #eee;
     border: 4px solid #fff;
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    opacity: .85;
 }
 
 .fullname {
+    margin-left: 8px;
     display: none;
+    color: #fff;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     .fullname {
         display: block;
     }
