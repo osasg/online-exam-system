@@ -1,0 +1,29 @@
+
+.FinishTimerBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.FinishTimerBox .finish-timer-wrap {
+    min-width: 288px;
+    background-color: #f7f6f1;
+}
+
+.FinishTimerBox .finish-timer-wrap > * {
+    background-color: #f7f6f1;
+    padding: 12px 24px;
+    box-shadow: 0 4px 18px 0 rgba(0,0,0, .1);
+    border-radius: 12px;
+    opacity: .3;
+    position: relative;
+    z-index: 2;
+}
+
+.FinishTimerBox .finish-timer-wrap > *:hover {
+    opacity: 1;
+}

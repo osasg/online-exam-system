@@ -1,4 +1,5 @@
 .QuestionOnlyAnswer {
+    padding-top: 48px;
     height: calc(100vh - 72px);
     overflow-y: scroll;
 }
@@ -39,5 +40,11 @@
 @media screen and (min-width: 768px) {
     .QuestionOnlyAnswer {
         margin-right: 72px;
+    }
+
+    .QuestionOnlyAnswer .q {
+        flex-direction: row;
+        border: none;
+        padding: 16px 0;
     }
 }

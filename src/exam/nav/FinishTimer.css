@@ -9,6 +9,7 @@
 }
 
 .FinishTimer .timer {
+    margin-left: 12px;
     font-size: 24px;
     font-weight: bold;
     color: #f2c600;

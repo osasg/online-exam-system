@@ -3,16 +3,12 @@ import React from 'react';
 import './MultiQuestion.css';
 import QuestionFlagColumn from '../question/QuestionFlagColumn';
 import QuestionTemplate from '../question/QuestionTemplate';
-import FinishTimer from '../nav/FinishTimer';
+import FinishTimerBox from '../nav/FinishTimerBox';
 
 export default function (props) {
     return (
         <div className="MultiQuestion">
-            <div className="finish-timer-mask">
-                <div className="finish-timer-wrap">
-                    <FinishTimer></FinishTimer>
-                </div>
-            </div>
+            <FinishTimerBox></FinishTimerBox>
             <div className="question-group">
                 <div className="question">
                     <div className="question-flag-wrap">

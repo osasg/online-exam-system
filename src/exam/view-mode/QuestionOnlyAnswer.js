@@ -2,10 +2,12 @@ import React from 'react';
 
 import './QuestionOnlyAnswer.css';
 import QuestionFlagColumn from '../question/QuestionFlagColumn';
+import FinishTimerBox from '../nav/FinishTimerBox';
 
 export default function () {
     return (
         <div className="QuestionOnlyAnswer">
+            <FinishTimerBox></FinishTimerBox>
             <div className="question-group">
                 {
                     Array.from({ length: 12 }).map((v, i) => 
