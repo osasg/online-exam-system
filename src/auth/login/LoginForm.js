@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './LoginForm.css';
 
-import InputForm from '../form/InputForm';
-import ButtonPrimary from '../buttons/ButtonPrimary';
+import InputForm from '../../form/InputForm';
+import ButtonPrimary from '../../buttons/ButtonPrimary';
 
 export default function () {
     return (

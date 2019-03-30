@@ -8,7 +8,7 @@ export default function (props) {
     const { isTeacher } = props;
     let newDo;
     if (isTeacher) 
-        newDo = <BWButtonBorder>New Exam</BWButtonBorder>
+        newDo = <BWButtonBorder>Save</BWButtonBorder>
     else
         newDo = <ButtonPrimary>New enroll</ButtonPrimary>;
     return (

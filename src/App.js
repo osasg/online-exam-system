@@ -4,8 +4,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 
 import Home from './home/Home';
-import Register from './register/Register';
-import Login from './login/Login';
+import Register from './auth/register/Register';
+import Login from './auth/login/Login';
 import Dashboard from './dashboard/Dashboard';
 import ExamPage from './exam/ExamPage'
 

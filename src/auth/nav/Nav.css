@@ -1,0 +1,28 @@
+.Nav {
+    background-color: var(--bg-color);
+    padding: 36px 48px;
+}
+
+.Nav a {
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    font-size: 24px;
+}
+
+.Nav .brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Nav .brand .logo {
+    background-color: #f38a00;
+    padding: 12px 14px;
+    border-radius: 4px;
+}
+
+.Nav .brand .name {
+    font-weight: bold;
+    margin-left: 8px;
+}

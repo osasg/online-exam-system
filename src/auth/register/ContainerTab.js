@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './ContainerTab.css';
-import ButtonPrimary from '../buttons/ButtonPrimary';
-import InputForm from '../form/InputForm';
+import ButtonPrimary from '../../buttons/ButtonPrimary';
+import InputForm from '../../form/InputForm';
 
 export default function (props) {
     return (

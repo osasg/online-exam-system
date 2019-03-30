@@ -8,14 +8,14 @@ import FinishTimer from '../nav/FinishTimer';
 
 export default function (props) {
     if (window.innerWidth < 768) {
-        alert('Can\'t open this mode because your device is too small (device-width < 768px)\nDon\'t worry!');
+        alert('Can\'t open SingleQuestion view-mode because your device is too small (device-width < 768px)\nDon\'t worry!');
         return <Redirect to="/exam/multi-question"></Redirect>;
     }
 
     return (
         <div className="SingleQuestion">
             <div className="file-attach">
-                {/* <img src="https://source.unsplash.com/640x800" /> */}
+                <img src="https://source.unsplash.com/640x800" alt="attach" />
             </div>
             <div className="content">
                 <div className="finish-timer-wrap">

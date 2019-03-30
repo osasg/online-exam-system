@@ -4,6 +4,7 @@ import './Register.css';
 
 import ControlTab from './ControlTab';
 import ContainerTab from './ContainerTab';
+import Nav from '../nav/Nav';
 
 class Register extends Component {
     constructor(props) {
@@ -40,9 +41,7 @@ class Register extends Component {
     render() {
         return (
             <div className="Register">
-                <div className="nav">
-    
-                </div>
+                <Nav></Nav>
                 <div className="form-container">
                     <div className="form-navigate">
                         <ControlTab changeTab={this.changeTab}/>

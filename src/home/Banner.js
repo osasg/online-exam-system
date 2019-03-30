@@ -3,17 +3,23 @@ import { Link } from 'react-router-dom';
 
 import './Banner.css';
 import BelowIcon from '../icons/below.png';
+import Avatar from '../icons/avatar.png';
 
 export default function () {
     return (
         <div className="Banner">
             <div className="menubar">
-                <div className="brand">
-                    <span className="logo">EX</span>
-                    <span className="name">Examiner</span>
-                </div>
+                <Link to="/">
+                    <div className="brand">
+                        <span className="logo">EX</span>
+                        <span className="name">Examiner</span>
+                    </div>
+                </Link>
                 <div className="login">
-                    <Link to="login">Login</Link>
+                    <Link to="login">
+                        <img src={Avatar} alt="sign in"/>
+                        Sign in
+                    </Link>
                 </div>
             </div>
             <div className="banner-container">

@@ -11,11 +11,14 @@
 
 .SingleQuestion .file-attach {
     background-color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .SingleQuestion .content {
     padding: 48px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .SingleQuestion .finish-timer-wrap {

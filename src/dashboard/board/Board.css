@@ -1,12 +1,8 @@
-.boarding-wrap,
-.task-wrap {
-    margin: auto;
-}
-
 .boarding-wrap {
     display: flex;
     align-items: center;
     height: 80px;
+    margin-left: 32px;
 }
 
 .new-enroll {
@@ -20,6 +16,10 @@
 }
 
 @media screen and (min-width: 768px) {
+    .boarding-wrap {
+        margin: 0;
+    }
+
     .Board {
         margin-left: 72px;
     }
