@@ -101,7 +101,8 @@
 @media screen and (min-width: 768px) {
     .Banner {
         padding: 48px 80px;
-        height: 50vh;
+        height: 60vh;
+        background-color: transparent;
     }
 
     .see-below {

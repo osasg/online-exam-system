@@ -1,6 +1,7 @@
 .Nav {
     background-color: var(--bg-color);
     padding: 36px 48px;
+    padding-bottom: 72px;
 }
 
 .Nav a {
@@ -25,4 +26,10 @@
 .Nav .brand .name {
     font-weight: bold;
     margin-left: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .Nav {
+        background-color: transparent;
+    }
 }

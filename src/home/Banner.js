@@ -4,10 +4,18 @@ import { Link } from 'react-router-dom';
 import './Banner.css';
 import BelowIcon from '../icons/below.png';
 import Avatar from '../icons/avatar.png';
+import BGBanner from '../images/bg-banner.png';
 
 export default function () {
+    const bannerStyle = {
+        backgroundImage: `url(${BGBanner})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'bottom'
+    }
+
     return (
-        <div className="Banner">
+        <div className="Banner" style={bannerStyle}>
             <div className="menubar">
                 <Link to="/">
                     <div className="brand">
