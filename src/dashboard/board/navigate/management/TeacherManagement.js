@@ -1,9 +1,9 @@
 import React from 'react';
 
-import '../Management.css';
+import './Management.css';
 
-import Manager from '../../../icons/teacher.png';
-import Question from '../../../icons/question.png';
+import Manager from '../../../../icons/teacher.png';
+import Question from '../../../../icons/question.png';
 
 export default function (props) {
     const { changeTask } = props;

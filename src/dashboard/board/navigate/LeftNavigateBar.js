@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './LeftNavigateBar.css';
-import StudentManagement from '../student-group/StudentManagement';
-import TeacherManagement from '../teacher-group/TeacherManagement';
+import StudentManagement from './management/StudentManagement';
+import TeacherManagement from './management/TeacherManagement';
 import Hamburger from '../../../icons/hamburger.png';
 import Home from '../../../icons/home.png';
 import { Link } from 'react-router-dom';

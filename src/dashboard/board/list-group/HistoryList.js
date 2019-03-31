@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './HistoryList.css';
-import Exam from '../../exam/Exam';
-import HistoryMode from '../../exam/exam-mode/HistoryMode';
+import Exam from '../exam/Exam';
+import HistoryMode from '../exam/exam-mode/HistoryMode';
 
 export default function (props) {
     const { historyList } = props;

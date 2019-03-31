@@ -1,9 +1,9 @@
 import React from 'react';
 
 import './ExamList.css';
-import Exam from '../../exam/Exam';
-import StudentMode from '../../exam/exam-mode/StudentMode';
-import TeacherMode from '../../exam/exam-mode/TeacherMode';
+import Exam from '../exam/Exam';
+import StudentMode from '../exam/exam-mode/StudentMode';
+import TeacherMode from '../exam/exam-mode/TeacherMode';
 
 export default function (props) {
     const { examList } = props;
