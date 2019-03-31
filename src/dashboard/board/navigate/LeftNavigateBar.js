@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import './LeftNavigateBar.css';
 import StudentManagement from './management/StudentManagement';
@@ -7,14 +8,7 @@ import Hamburger from '../../../icons/hamburger.png';
 import Home from '../../../icons/home.png';
 import { Link } from 'react-router-dom';
 
-function LeftNavigateBar(props) {
-    const { isTeacher, changeTask } = props;
-    let management;
-    if (isTeacher)
-        management = <TeacherManagement changeTask={(t) => {changeTask(t); closeMenu();}}></TeacherManagement> ;
-    else
-        management = <StudentManagement changeTask={(t) => {changeTask(t); closeMenu();}}></StudentManagement>;
-
+function LeftNavigateBar() {
     return (
         <div className="LeftNavigateBar">
             <div className="navigator">
@@ -22,7 +16,10 @@ function LeftNavigateBar(props) {
                     <Link to="/"><img className="icon" src={Home} alt="home"></img></Link>
                 </div>
 
-                <div className="management">{management}</div>
+                <div className="management" onClick={closeMenu}>
+                    <Route path="/dashboard/student" component={StudentManagement}/>
+                    <Route path="/dashboard/teacher" component={TeacherManagement}/>
+                </div>
 
                 <div className="settings">
                     <div className="icon"></div>

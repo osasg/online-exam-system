@@ -4,11 +4,20 @@ import './HistoryList.css';
 import Exam from '../exam/Exam';
 import HistoryMode from '../exam/exam-mode/HistoryMode';
 
-export default function (props) {
-    const { historyList } = props;
+export default function () {
+    const data = {
+        name: "Sketch Prototyping",
+        subject: "UI UX",
+        duedate: "Mar 12, 2018",
+        duration: "12 mins",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        participants: "23",
+        teacher: "Node"
+    };
+
     return (
         <div className="HistoryList">
-            {historyList.map(({name, subject, duedate, duration, description, participants, teacher, score}, i) => 
+            {[data, data, data].map(({name, subject, duedate, duration, description, participants, teacher, score}, i) => 
                 <div className="item" key = {i}>
                     <Exam
                         name={name}

@@ -25,13 +25,7 @@
     }
 
     .board-container {
-        margin: 0 auto;
-        max-width: 768px;
         padding: 0 24px;
-    }
-
-    .Board.task-questioning .board-container {
-        max-width: max-content;
     }
 
     .filter {

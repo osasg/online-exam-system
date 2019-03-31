@@ -12,8 +12,8 @@ function Dashboard() {
     return (
         <div className="Dashboard">
             <TopNav />
-            <Route path="/dashboard/student" exact component={StudentDashboard} />
-            <Route path="/dashboard/teacher" exact component={TeacherDashboard} />
+            <Route path="/dashboard/student" component={StudentDashboard} />
+            <Route path="/dashboard/teacher" component={TeacherDashboard} />
             <UserLogin avatarSrc="" fullName="Quang Dat Pham" />
         </div>
     );
