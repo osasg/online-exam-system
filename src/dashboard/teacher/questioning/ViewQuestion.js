@@ -4,7 +4,17 @@ import './ViewQuestion.css';
 import BWButton from '../../../buttons/BWButton';
 
 export default function (props) {
-    const { questionNumber, question, answerA, answerB, answerC, answerD } = props;
+    const {
+        questionNumber,
+        question,
+        answerA,
+        answerB,
+        answerC,
+        answerD,
+        rightAnswer,
+        fileAttach
+    } = props;
+
     return (
         <div className="ViewQuestion">
             <div className="question-number">
@@ -18,6 +28,12 @@ export default function (props) {
                 <p>B. {answerB}</p>
                 <p>C. {answerC}</p>
                 <p>D. {answerD}</p>
+            </div>
+            <div className="file-attach">
+                {fileAttach ? <p>File attach: {fileAttach}</p> : ''}
+            </div>
+            <div className="right-answer">
+                <p>Right answer: <span className="ra">{rightAnswer}</span></p>
             </div>
             <div className="action">
                 <BWButton>Edit</BWButton>

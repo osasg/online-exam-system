@@ -27,7 +27,7 @@
 
 @media screen and (min-width: 992px) {
     .Questioning {
-        height: calc(100vh - 80px);
+        height: calc(100vh - 104px);
         overflow: hidden;
     }
     

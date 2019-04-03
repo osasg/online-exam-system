@@ -3,10 +3,10 @@ import { Route } from 'react-router-dom';
 
 import './Dashboard.css';
 
-import StudentDashboard from './student/StudentDashboard';
+import StudentDashboard from './student/page/StudentDashboard';
 import UserLogin from './board/navigate/UserLogin';
 import TopNav from './board/navigate/mobile/TopNav';
-import TeacherDashboard from './teacher/TeacherDashboard';
+import TeacherDashboard from './teacher/page/TeacherDashboard';
 
 function Dashboard() {
     return (
