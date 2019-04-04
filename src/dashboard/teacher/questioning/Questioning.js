@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './Questioning.css';
 import InputForm from '../../../form/InputForm';
@@ -6,28 +6,115 @@ import ButtonPrimary from '../../../buttons/ButtonPrimary';
 import BWButton from '../../../buttons/BWButton';
 import AllQuestion from './AllQuestion';
 import FileForm from '../../../form/FileForm';
+import { TeacherConsumer } from '../../../context/TeacherContext';
 
-export default function () {
-    return (
-        <div className="Questioning">
-            <div className="question-form">
-                <div className="input-group">
-                    <InputForm label="Question" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry."></InputForm>
-                    <InputForm label="Answer A" placeholder="Lorem Ipsum."></InputForm>
-                    <InputForm label="Answer B" placeholder="Lorem Ipsum."></InputForm>
-                    <InputForm label="Answer C" placeholder="Lorem Ipsum."></InputForm>
-                    <InputForm label="Answer D" placeholder="Lorem Ipsum."></InputForm>
-                    <InputForm label="Right Answer" placeholder="a b c d"></InputForm>
-                    <FileForm label="File attach"></FileForm>
+class Questioning extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            question: '',
+            a: '',
+            b: '',
+            c: '',
+            d: '',
+            rightAnswer: '',
+            fileAttach: {}
+        }
+
+        this.setQuestionProp = this.setQuestionProp.bind(this);
+        this.addQToContext = this.addQToContext.bind(this);
+        this.clear = this.clear.bind(this);
+    }
+
+    setQuestionProp(p, val) {
+        this.setState({ [p]: val });
+    }
+    
+    addQToContext(addQuestion) {
+        const { question, a, b, c, d, rightAnswer, fileAttach } = this.state;
+        addQuestion({ question, a, b, c, d, rightAnswer, fileAttach });
+        this.clear();
+    }
+
+    clear() {
+        this.setState({
+            question: '',
+            a: '',
+            b: '',
+            c: '',
+            d: '',
+            rightAnswer: '',
+            fileAttach: {}
+        });
+    }
+
+    render() {
+        const { setQuestionProp, clear, addQToContext } = this;
+        const { question, a, b, c, d, rightAnswer, fileAttach } = this.state;
+
+        return (
+            <div className="Questioning">
+                <div className="question-form">
+                    <div className="input-group">
+                        <InputForm
+                            value={question}
+                            onChange={(val) => setQuestionProp('question', val)}
+                            label="Question"
+                            placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">
+                        </InputForm>
+                        <InputForm
+                            value={a}
+                            onChange={(val) => setQuestionProp('a', val)}
+                            label="Answer A"
+                            placeholder="Lorem Ipsum.">
+                        </InputForm>
+                        <InputForm
+                            value={b}
+                            label="Answer B"
+                            placeholder="Lorem Ipsum."
+                            onChange={(val) => setQuestionProp('b', val)}>
+                        </InputForm>
+                        <InputForm
+                            value={c}
+                            label="Answer C"
+                            placeholder="Lorem Ipsum."
+                            onChange={(val) => setQuestionProp('c', val)}>
+                        </InputForm>
+                        <InputForm
+                            value={d}
+                            label="Answer D"
+                            placeholder="Lorem Ipsum."
+                            onChange={(val) => setQuestionProp('d', val)}>
+                        </InputForm>
+                        <InputForm
+                            value={rightAnswer}
+                            label="Right Answer"
+                            placeholder="a b c d"
+                            onChange={(val) => setQuestionProp('rightAnswer', val)}>
+                        </InputForm>
+                        <FileForm
+                            value={fileAttach}
+                            label="File attach"
+                            onChange={(val) => setQuestionProp('fileAttach', val)}>
+                        </FileForm>
+                    </div>
+                    <div className="action-group">
+                        <TeacherConsumer>
+                            {
+                                ({ addQuestion }) =>
+                                    <ButtonPrimary handleClick={() => addQToContext(addQuestion)}>Add</ButtonPrimary>
+                            }
+                        </TeacherConsumer>
+                        <BWButton handleClick={clear}>Clear</BWButton>       
+                    </div>
                 </div>
-                <div className="action-group">
-                    <ButtonPrimary>Add</ButtonPrimary>
-                    <BWButton>Clear</BWButton>
+                <div className="all-question-wrap">
+                    <AllQuestion></AllQuestion>
                 </div>
             </div>
-            <div className="all-question-wrap">
-                <AllQuestion></AllQuestion>
-            </div>
-        </div>
-    );
+        );
+    }
 }
+
+export default Questioning;

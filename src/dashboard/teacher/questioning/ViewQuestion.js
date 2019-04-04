@@ -12,7 +12,7 @@ export default function (props) {
         answerC,
         answerD,
         rightAnswer,
-        fileAttach
+        fileName
     } = props;
 
     return (
@@ -30,7 +30,7 @@ export default function (props) {
                 <p>D. {answerD}</p>
             </div>
             <div className="file-attach">
-                {fileAttach ? <p>File attach: {fileAttach}</p> : ''}
+                {fileName ? <p>File attach: {fileName}</p> : ''}
             </div>
             <div className="right-answer">
                 <p>Right answer: <span className="ra">{rightAnswer}</span></p>

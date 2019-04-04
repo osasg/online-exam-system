@@ -4,7 +4,7 @@ import './UserLogin.css';
 
 import Avatar from '../../../icons/avatar.png';
 
-export default function (props) {
+export default function UserLogin(props) {
     let { fullName, avatarSrc } = props;
     
     return (

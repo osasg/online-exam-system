@@ -4,13 +4,13 @@ import './AllQuestion.css';
 import ViewQuestion from './ViewQuestion';
 import { TeacherConsumer } from '../../../context/TeacherContext';
 
-export default function () {
+export default function AllQuestion() {
     return (
         <div className="AllQuestion">
             <TeacherConsumer>
                 {({ questions }) => questions
-                    .map(({ id, question, a, b, c, d, rightAnswer, fileAttach }, i) => 
-                        <div className="vq-wrap" key={id}>
+                    .map(({ id, question, a, b, c, d, rightAnswer, fileName }, i) => 
+                        <div className="vq-wrap" key={i}>
                             <ViewQuestion
                                 questionNumber={i}
                                 question={question}
@@ -19,7 +19,7 @@ export default function () {
                                 answerC={c}
                                 answerD={d}
                                 rightAnswer={rightAnswer}
-                                fileAttach={fileAttach}
+                                fileName={fileName}
                             ></ViewQuestion>
                         </div>
                     )
