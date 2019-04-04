@@ -11,8 +11,9 @@ import { TeacherConsumer } from '../../../context/TeacherContext';
 class Questioning extends Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
+            questionNumber: -1,
             question: '',
             a: '',
             b: '',
@@ -20,25 +21,31 @@ class Questioning extends Component {
             d: '',
             rightAnswer: '',
             fileAttach: {}
-        }
+        };
 
         this.setQuestionProp = this.setQuestionProp.bind(this);
         this.addQToContext = this.addQToContext.bind(this);
         this.clear = this.clear.bind(this);
+        this.renderQuestion = this.renderQuestion.bind(this);
     }
 
     setQuestionProp(p, val) {
+        if (p === 'rightAnswer') {
+            val = val[0];
+        }
+        
         this.setState({ [p]: val });
     }
     
     addQToContext(addQuestion) {
-        const { question, a, b, c, d, rightAnswer, fileAttach } = this.state;
-        addQuestion({ question, a, b, c, d, rightAnswer, fileAttach });
+        const { questionNumber, question, a, b, c, d, rightAnswer, fileAttach } = this.state;
+        addQuestion({ questionNumber, question, a, b, c, d, rightAnswer, fileAttach });
         this.clear();
     }
 
     clear() {
         this.setState({
+            questionNumber: -1,
             question: '',
             a: '',
             b: '',
@@ -49,8 +56,15 @@ class Questioning extends Component {
         });
     }
 
+    renderQuestion(getQuestion, index) {
+        const q = getQuestion(index);
+        const { question, a, b, c, d, rightAnswer, fileAttach } = q;
+        this.setState({ questionNumber: index, question, a, b, c, d, rightAnswer, fileAttach });
+        
+    }
+
     render() {
-        const { setQuestionProp, clear, addQToContext } = this;
+        const { setQuestionProp, clear, addQToContext, renderQuestion } = this;
         const { question, a, b, c, d, rightAnswer, fileAttach } = this.state;
 
         return (
@@ -110,7 +124,14 @@ class Questioning extends Component {
                     </div>
                 </div>
                 <div className="all-question-wrap">
-                    <AllQuestion></AllQuestion>
+                    <TeacherConsumer>
+                        {
+                            ({ getQuestion }) =>
+                                <AllQuestion
+                                    renderQuestion={(index) => renderQuestion(getQuestion, index)}>
+                                </AllQuestion>
+                        }
+                    </TeacherConsumer>
                 </div>
             </div>
         );

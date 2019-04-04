@@ -15,10 +15,33 @@ export class TeacherProvider extends Component {
         }
 
         this.addQuestion = this.addQuestion.bind(this);
+        this.getQuestion = this.getQuestion.bind(this);
+        this.deleteQuestion = this.deleteQuestion.bind(this);
+        this.uploadExam = this.uploadExam.bind(this);
     }
 
-    addQuestion({ question, a, b, c, d, rightAnswer, fileAttach}) {
-        const fileName = fileAttach.name;
+    addQuestion({ questionNumber, question, a, b, c, d, rightAnswer, fileAttach}) {
+        const fileName = fileAttach ? fileAttach.name : '';
+
+        if (questionNumber >= 0) {
+            const questions = this.state.questions.slice();
+            const q = questions[questionNumber];
+            
+            q.question = question;
+            q.a = a;
+            q.b = b;
+            q.c = c;
+            q.d = d;
+            q.rightAnswer = rightAnswer;
+            q.fileAttach = fileAttach;
+            q.fileName = fileName;
+
+            this.setState({
+                questions
+            });
+            return;
+        }
+             
         this.setState({
             questions: [
                 ...this.state.questions,
@@ -27,12 +50,17 @@ export class TeacherProvider extends Component {
         })
     }
 
-    editQuestion() {
-
+    getQuestion(index) {
+        return this.state.questions[index];
     }
 
-    deleteQuesiton() {
-
+    deleteQuestion(index) {
+        this.setState({
+            questions: [
+                ...this.state.questions.slice(0, index),
+                ...this.state.questions.slice(index + 1)
+            ]
+        });
     }
 
     uploadExam() {
@@ -41,13 +69,16 @@ export class TeacherProvider extends Component {
 
     render() {
         const { examList, questions } = this.state;
-        const { addQuestion } = this;
+        const { addQuestion, getQuestion, deleteQuestion, uploadExam } = this;
         
         return (
             <TeacherContext.Provider value={{
-                examList: examList,
-                questions: questions,
-                addQuestion: addQuestion
+                examList,
+                questions,
+                addQuestion,
+                deleteQuestion,
+                getQuestion,
+                uploadExam
             }}>
                 {this.props.children}
             </TeacherContext.Provider>

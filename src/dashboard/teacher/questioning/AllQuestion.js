@@ -4,7 +4,8 @@ import './AllQuestion.css';
 import ViewQuestion from './ViewQuestion';
 import { TeacherConsumer } from '../../../context/TeacherContext';
 
-export default function AllQuestion() {
+export default function AllQuestion(props) {
+    const { renderQuestion } = props;
     return (
         <div className="AllQuestion">
             <TeacherConsumer>
@@ -20,6 +21,7 @@ export default function AllQuestion() {
                                 answerD={d}
                                 rightAnswer={rightAnswer}
                                 fileName={fileName}
+                                renderQuestion={renderQuestion}
                             ></ViewQuestion>
                         </div>
                     )

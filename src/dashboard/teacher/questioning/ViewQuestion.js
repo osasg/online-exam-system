@@ -2,6 +2,7 @@ import React from 'react';
 
 import './ViewQuestion.css';
 import BWButton from '../../../buttons/BWButton';
+import { TeacherConsumer } from '../../../context/TeacherContext';
 
 export default function (props) {
     const {
@@ -12,7 +13,8 @@ export default function (props) {
         answerC,
         answerD,
         rightAnswer,
-        fileName
+        fileName,
+        renderQuestion
     } = props;
 
     return (
@@ -36,8 +38,13 @@ export default function (props) {
                 <p>Right answer: <span className="ra">{rightAnswer}</span></p>
             </div>
             <div className="action">
-                <BWButton>Edit</BWButton>
-                <BWButton>Delete</BWButton>
+                <BWButton handleClick={() => renderQuestion(questionNumber)}>Edit</BWButton>
+                <TeacherConsumer>
+                    {
+                        ({ deleteQuestion }) =>
+                            <BWButton handleClick={() => deleteQuestion(questionNumber)}>Delete</BWButton>
+                    }
+                </TeacherConsumer>
             </div>
         </div>
     );

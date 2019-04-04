@@ -4,7 +4,7 @@ import './FileForm.css';
 import ButtonPrimary from '../buttons/ButtonPrimary';
 
 export default function FileForm(props) {
-    const { label, onChange } = props;
+    const { label, onChange, value } = props;
     const chooseFile = () => {
         const file = document.querySelector('input[type="file"]');
         file.click();
@@ -13,7 +13,7 @@ export default function FileForm(props) {
     const handleChange = () => {
         const file = document.querySelector('input[type="file"]');
         const fileName = document.querySelector('.file-name');
-        fileName.textContent = file.files[0] ? file.files[0].name : '';
+        fileName.textContent = file.files[0] ? file.files[0].name : 'Choose image, video, audio';
         onChange(file.files[0]);
     }
 
@@ -23,7 +23,7 @@ export default function FileForm(props) {
                 <span className="label-name">{label}</span>
                 <div className="select-file">
                     <ButtonPrimary handleClick={chooseFile}>Choose file</ButtonPrimary>
-                    <span className="file-name">Choose image, video, audio</span>
+                    <span className="file-name">{value.name ? value.name : 'Choose image, video, audio'}</span>
                 </div>
                 <input
                     accept="image/*, video/*, audio/*"
@@ -31,7 +31,7 @@ export default function FileForm(props) {
                     tabIndex="1" 
                     type="file" 
                     id={label} 
-                    name={label} 
+                    name={label}
                 />
             </label>
         </div>
