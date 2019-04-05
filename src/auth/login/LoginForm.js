@@ -15,6 +15,7 @@ export default class LoginForm extends Component {
         }
 
         this.changeLogin = this.changeLogin.bind(this);
+        this.login = this.login.bind(this);
     }
 
     changeLogin(prop, val) {
@@ -23,11 +24,17 @@ export default class LoginForm extends Component {
         });
     }
 
+    login(e) {
+        e && e.preventDefault();
+        const { username, password } = this.state;
+        console.log(username, password);
+    }
+
     render() {
         const { username, password } = this.state;
 
         return (
-            <div className="LoginForm">
+            <form onSubmit={e => this.login(e)} className="LoginForm">
                 <div className="title">Sign in</div>
                 <div className="form-wrap">
                     <InputForm value={username} onChange={(val) => this.changeLogin('username', val)} label="username" placeholder="quangdatpham"/>
@@ -37,13 +44,13 @@ export default class LoginForm extends Component {
                     Forgot?
                 </div>
                 <div className="login-btn">
-                    <Link to="/"><ButtonPrimary>Sign in</ButtonPrimary></Link>
+                    <ButtonPrimary handleClick={this.login}>Sign in</ButtonPrimary>
                 </div>
                 <div className="goto-register">
                     Don't have an account?
                     <Link to="/register">Sign up</Link>
                 </div>
-            </div>
+            </form>
         );
     }
 }

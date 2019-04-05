@@ -19,7 +19,7 @@
     margin-bottom: 36px;
 }
 
-.login-btn > a {
+.login-btn {
     display: flex;
     flex-direction: column;
     text-decoration: none;

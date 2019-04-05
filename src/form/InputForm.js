@@ -3,7 +3,7 @@ import React from 'react';
 import './InputForm.css';
 
 export default function InputForm(props) {
-    const { label, placeholder, type = 'text', onChange, value } = props;
+    const { label, placeholder, type = 'text', onChange, value, tabIndex = 1 } = props;
 
     return (
         <div className="InputForm">
@@ -12,7 +12,7 @@ export default function InputForm(props) {
                 <input
                     value={value}
                     onChange={e => onChange(e.target.value)}
-                    tabIndex="1"
+                    tabIndex={tabIndex}
                     type={type}
                     id={label}
                     name={label}

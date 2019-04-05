@@ -1,29 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import BWButtonBorder from '../../../../buttons/BWButtonBorder';
+import TeacherBoarding from './Teacherboarding';
+import StudentBoarding from './StudentBoarding';
 
-export default function (props) {
-    const teacherBoarding = function () {
-        return (
-            <div className="teacher-boarding">
-                <BWButtonBorder>Save</BWButtonBorder>
-            </div>
-        );
-    }
-
-    const studentBoarding = function () {
-        return (
-            <div className="student-boarding">
-                <BWButtonBorder>New enroll</BWButtonBorder>
-            </div>
-        );
-    }
-
+export default function Boarding() {
     return (
         <div className="Boarding">
-            <Route path="/dashboard/teacher" component={teacherBoarding}/>
-            <Route path="/dashboard/student" component={studentBoarding}/>
+            <Route path="/dashboard/teacher" component={TeacherBoarding}/>
+            <Route path="/dashboard/student" component={StudentBoarding}/>
         </div>
     );
 }

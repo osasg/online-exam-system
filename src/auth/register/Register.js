@@ -47,7 +47,7 @@ class Register extends Component {
                         <ControlTab changeTab={this.changeTab}/>
                     </div>
                     <div className="form-content">
-                        <ContainerTab changeTab={this.changeTab} />
+                        <ContainerTab currentTab={this.state.currentTab} changeTab={this.changeTab} />
                     </div>
                 </div>
             </div>
