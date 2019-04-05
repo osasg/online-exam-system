@@ -22,6 +22,39 @@ export class ExamingProvider extends Component {
         this.changeOnQuestion = this.changeOnQuestion.bind(this);
         this.changeAnswer = this.changeAnswer.bind(this);
         this.changeFlagQuestion = this.changeFlagQuestion.bind(this);
+        this.startFnTimer = this.startFnTimer.bind(this);
+    }
+
+    startFnTimer() {
+        const timeLeft = this.state.timeLeft;
+        let timeCounter = 0;
+
+        const updateTimer = () => {
+            let left = timeLeft - timeCounter;
+            if (left < 0)
+                return clearInterval(this.timeStart);
+
+            const hours = Math.floor(left / 3600);
+            left = left % 3600;
+            const minutes = Math.floor(left / 60);
+            left = left % 60;
+
+            const time = `
+                ${hours < 10 ? '0' + hours : hours}
+                 : ${minutes < 10 ? '0' + minutes : minutes}
+                 : ${left < 10 ? '0' + left : left}
+            `;
+
+            this.setState({
+                timeLeft: time
+            })
+            timeCounter++;
+        }
+        this.timeStart = setInterval(updateTimer, 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timeStart);
     }
 
     attemptNow(id) {
@@ -31,7 +64,9 @@ export class ExamingProvider extends Component {
             examing: {
                 questions: examing.questions
             }
-        });
+        }, () => {
+            this.startFnTimer();
+        })
     }
 
     changeAnswer(i, a) {
