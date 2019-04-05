@@ -23,7 +23,7 @@ export default function ExamPage() {
                 <RightNav></RightNav>
             </div>
             <div className="bottom-control">
-                <BottomSlider totalQuestion={12} activeQuestion={6}></BottomSlider>
+                <BottomSlider></BottomSlider>
             </div>
             <div className="hamburger close">
                 <img onClick={toggleRightControl} className="icon" src={Hamburger} alt="hamburger" />

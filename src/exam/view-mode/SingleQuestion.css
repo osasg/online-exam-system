@@ -5,11 +5,8 @@
     margin-right: 72px;
 }
 
-.SingleQuestion .sq-wrap > * {
-    flex: 1 1 50%;
-}
-
 .SingleQuestion .sq-wrap .file-attach {
+    width: 50%;
     background-color: #888;
     display: flex;
     justify-content: center;
@@ -17,6 +14,7 @@
 }
 
 .SingleQuestion .sq-wrap .content {
+    width: 50%;
     padding: 48px;
     overflow-y: auto;
 }

@@ -29,3 +29,13 @@
 .QuestionFlagRow p {
     flex: 1 1 0;
 }
+
+img::-moz-selection {
+    background-color: transparent;
+    color: #000;
+}
+
+img::selection {
+    background-color: transparent;
+    color: #000;
+}

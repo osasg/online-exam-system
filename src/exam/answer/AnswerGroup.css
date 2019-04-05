@@ -27,6 +27,7 @@
     align-items: center;
     user-select: none;
     outline: none;
+    pointer-events: none;
 }
 
 .AnswerGroup input:checked:before {

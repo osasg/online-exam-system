@@ -19,6 +19,9 @@ export class ExamingProvider extends Component {
         }
 
         this.attemptNow = this.attemptNow.bind(this);
+        this.changeOnQuestion = this.changeOnQuestion.bind(this);
+        this.changeAnswer = this.changeAnswer.bind(this);
+        this.changeFlagQuestion = this.changeFlagQuestion.bind(this);
     }
 
     attemptNow(id) {
@@ -29,11 +32,34 @@ export class ExamingProvider extends Component {
                 questions: examing.questions
             }
         });
-        console.log(examing);
+    }
+
+    changeAnswer(i, a) {
+        const questions = this.state.examing.questions.slice();
+        questions[i].yourAnswer = a;
+        this.setState({
+            examing: { questions }
+        });
+    }
+
+    changeOnQuestion(i) {
+        const max = this.state.examing.questions.length;
+        const onq = (i % max) || 0;
+        this.setState({
+            onQuestion: onq < 0 ? max - 1 : onq
+        })
+    }
+
+    changeFlagQuestion(i) {
+        const questions = this.state.examing.questions.slice();
+        questions[i].flag = !questions[i].flag;
+        this.setState({
+            examing: { questions }
+        });
     }
 
     render() {
-        const { attemptNow } = this;
+        const { attemptNow, changeOnQuestion, changeAnswer, changeFlagQuestion } = this;
         const { examing, onQuestion, timeLeft } = this.state;
         
         return (
@@ -41,7 +67,10 @@ export class ExamingProvider extends Component {
                 attemptNow,
                 examing,
                 onQuestion,
-                timeLeft
+                timeLeft,
+                changeOnQuestion,
+                changeAnswer,
+                changeFlagQuestion
             }}>
                 {this.props.children}
             </ExamingContext.Provider>

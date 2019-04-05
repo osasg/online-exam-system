@@ -25,7 +25,7 @@ export default function SingleQuestion(props) {
                         return (
                             <div className="sq-wrap">
                                 <div className="file-attach">
-                                    <img src="https://source.unsplash.com/640x800" alt="attach" />
+                                    <img draggable={false} src="https://source.unsplash.com/640x800" alt="attach" />
                                 </div>
                                 <div className="content">
                                     <div className="finish-timer-wrap">
@@ -33,7 +33,7 @@ export default function SingleQuestion(props) {
                                     </div>
                                     <QuestionFlagRow flag={flag} questionNumber={onQuestion}></QuestionFlagRow>
                                     <QuestionTemplate
-                                        questionNumber="3"
+                                        questionNumber={onQuestion}
                                         question={question}
                                         answerA={a}
                                         answerB={b}
