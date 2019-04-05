@@ -11,6 +11,7 @@ export class ExamingProvider extends Component {
         super(props);
 
         this.state = {
+            timeLeft: null,
             examing: {
                 questions: []
             },
@@ -23,8 +24,8 @@ export class ExamingProvider extends Component {
     attemptNow(id) {
         // get exam //
         this.setState({
+            timeLeft: 5,
             examing: {
-                startAt: new Date(),
                 questions: examing.questions
             }
         });
@@ -33,13 +34,14 @@ export class ExamingProvider extends Component {
 
     render() {
         const { attemptNow } = this;
-        const { examing, onQuestion } = this.state;
+        const { examing, onQuestion, timeLeft } = this.state;
         
         return (
             <ExamingContext.Provider value={{
                 attemptNow,
                 examing,
-                onQuestion
+                onQuestion,
+                timeLeft
             }}>
                 {this.props.children}
             </ExamingContext.Provider>
