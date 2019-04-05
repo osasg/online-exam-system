@@ -4,76 +4,35 @@ import './MultiQuestion.css';
 import QuestionFlagColumn from '../question/QuestionFlagColumn';
 import QuestionTemplate from '../question/QuestionTemplate';
 import FinishTimerBox from '../nav/FinishTimerBox';
+import { ExamingConsumer } from '../../context/ExamingContext';
 
 export default function (props) {
     return (
         <div className="MultiQuestion">
             <FinishTimerBox></FinishTimerBox>
             <div className="question-group">
-                <div className="question">
-                    <div className="question-flag-wrap">
-                        <QuestionFlagColumn questionNumber="3"></QuestionFlagColumn>
-                    </div>
-                    <div className="question-template-wrap">
-                        <QuestionTemplate
-                            questionNumber="3"
-                            question="Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry."
-                            answerA="Lorem ipsum"
-                            answerB="Lorem ipsum"
-                            answerC="Lorem ipsum"
-                            answerD="Lorem ipsum"
-                        ></QuestionTemplate>
-                    </div>
-                </div>
-                <div className="question">
-                    <div className="question-flag-wrap">
-                        <QuestionFlagColumn questionNumber="0"></QuestionFlagColumn>
-                    </div>
-                    <div className="question-template-wrap">
-                        <QuestionTemplate
-                            questionNumber="0"
-                            question="Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry."
-                            answerA="Lorem ipsum"
-                            answerB="Lorem ipsum"
-                            answerC="Lorem ipsum"
-                            answerD="Lorem ipsum"
-                        ></QuestionTemplate>
-                    </div>
-                </div>
-                <div className="question">
-                    <div className="question-flag-wrap">
-                        <QuestionFlagColumn questionNumber="1"></QuestionFlagColumn>
-                    </div>
-                    <div className="question-template-wrap">
-                        <QuestionTemplate
-                            questionNumber="1"
-                            question="Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry."
-                            answerA="Lorem ipsum"
-                            answerB="Lorem ipsum"
-                            answerC="Lorem ipsum"
-                            answerD="Lorem ipsum"
-                        ></QuestionTemplate>
-                    </div>
-                </div>
-                <div className="question">
-                    <div className="question-flag-wrap">
-                        <QuestionFlagColumn questionNumber="2"></QuestionFlagColumn>
-                    </div>
-                    <div className="question-template-wrap">
-                        <QuestionTemplate
-                            questionNumber="2"
-                            question="Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry."
-                            answerA="Lorem ipsum"
-                            answerB="Lorem ipsum"
-                            answerC="Lorem ipsum"
-                            answerD="Lorem ipsum"
-                        ></QuestionTemplate>
-                    </div>
-                </div>
+                <ExamingConsumer>
+                    {
+                        ({ examing }) => examing.questions.map(({ question, a, b, c, d, yourAnswer, flag}, i) =>
+                            <div className="question" key={i}>
+                                <div className="question-flag-wrap">
+                                    <QuestionFlagColumn flag={flag} questionNumber={i}></QuestionFlagColumn>
+                                </div>
+                                <div className="question-template-wrap">
+                                    <QuestionTemplate
+                                        questionNumber={i}
+                                        question={question}
+                                        answerA={a}
+                                        answerB={b}
+                                        answerC={c}
+                                        answerD={d}
+                                        yourAnswer={yourAnswer}
+                                    ></QuestionTemplate>
+                                </div>
+                            </div>
+                        )
+                    }
+                </ExamingConsumer>
             </div>
         </div>
     );

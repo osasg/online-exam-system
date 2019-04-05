@@ -10,7 +10,7 @@ import SingleQuestion from './view-mode/SingleQuestion';
 import QuestionOnlyAnswer from './view-mode/QuestionOnlyAnswer';
 import Hamburger from '../icons/hamburger.png';
 
-export default function () {
+export default function ExamPage() {
     return (
         <div className="ExamPage">
             <div className="view-mode">

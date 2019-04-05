@@ -4,7 +4,7 @@ import './FileForm.css';
 import ButtonPrimary from '../buttons/ButtonPrimary';
 
 export default function FileForm(props) {
-    const { label, onChange, value } = props;
+    const { label, onChange, value = {} } = props;
     const chooseFile = () => {
         const file = document.querySelector('input[type="file"]');
         file.click();

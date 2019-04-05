@@ -9,7 +9,6 @@
 .QuestionFlagRow p,
 .QuestionFlagColumn p {
     user-select: none;
-    text-align: center;
     min-width: 120px;
     color: #888;
     margin-top: 0;
@@ -20,6 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .QuestionFlagRow {

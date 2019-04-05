@@ -39,6 +39,65 @@ export const historyList = [
     }
 ];
 
+export const examing = {
+    questions: [
+        {
+            question: 'That\'s a very nice dress you\'re wearing. - ............',
+            a: 'I\'m glad you like it',
+            b: 'That\'s all right',
+            c: 'That\' nice',
+            d: 'You\'re quite right',
+            yourAnswer: '',
+            flag: true
+        },
+        {
+            question: '............to stay the night? – Oh, that\'s very kind of you.',
+            a: 'Do you feel like',
+            b: 'Would you like',
+            c: 'Why don\'t you',
+            d: 'Do you enjoy',
+            yourAnswer: 'b',
+            flag: false,
+            fileAttach: 'hello.png'
+        },
+        {
+            question: 'Shall we have a farewell party next week? - Yes, let\'s make .........next Saturday evening.',
+            a: 'on',
+            b: 'it',
+            c: 'ourselves',
+            d: 'Ø',
+            yourAnswer: 'a',
+            flag: false
+        },
+        {
+            question: '. Does Tommy like hamburgers? - Yes ............He eats them almost everyday.',
+            a: 'So much',
+            b: 'So many',
+            c: 'So few',
+            d: 'So little',
+            yourAnswer: 'd',
+            flag: true
+        },
+        {
+            question: 'Don\'t you remember ............this film star on TV last year?',
+            a: 'seeing',
+            b: 'to see',
+            c: 'that you see',
+            d: 'saw',
+            yourAnswer: '',
+            flag: false
+        },
+        {
+            question: 'Is this the first time that you ............to this country?',
+            a: 'will came',
+            b: 'have come',
+            c: 'came',
+            d: 'had come',
+            yourAnswer: 'b',
+            flag: true
+        }
+    ]
+}
 
 // TEACHER
 export const examList = [

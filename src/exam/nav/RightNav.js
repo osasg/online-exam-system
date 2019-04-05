@@ -7,7 +7,7 @@ import Multi from '../../icons/multi.svg';
 import Overview from '../../icons/overview.svg';
 import QA from '../../icons/q-a.svg';
 
-export default function () {
+export default function RightNav() {
     return (
         <div className="RightNav">
             <div className="avatar"></div>

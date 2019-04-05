@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './FinishTimer.css';
 import ButtonPrimary from '../../buttons/ButtonPrimary';
 
-export default function (props) {
+export default function FinishTimer(props) {
     return (
         <div className="FinishTimer">
             <div className="finish">

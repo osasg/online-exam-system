@@ -1,27 +1,27 @@
-.SingleQuestion {
+.SingleQuestion .sq-wrap {
     height: calc(100vh - 72px);
     overflow: hidden;
     display: flex;
     margin-right: 72px;
 }
 
-.SingleQuestion > * {
+.SingleQuestion .sq-wrap > * {
     flex: 1 1 50%;
 }
 
-.SingleQuestion .file-attach {
+.SingleQuestion .sq-wrap .file-attach {
     background-color: #888;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.SingleQuestion .content {
+.SingleQuestion .sq-wrap .content {
     padding: 48px;
     overflow-y: auto;
 }
 
-.SingleQuestion .finish-timer-wrap {
+.SingleQuestion .sq-wrap .finish-timer-wrap {
     margin-bottom: 36px;
 }
 
@@ -29,17 +29,17 @@
     font-size: 24px;
 }
 
-.SingleQuestion label {
+.SingleQuestion .sq-wrap label {
     padding: 24px 0;
     font-size: 24px;
 }
 
-.SingleQuestion label input {
+.SingleQuestion .sq-wrap label input {
     height: 32px;
     width: 32px;
 }
 
-.SingleQuestion label input:checked:before {
+.SingleQuestion .sq-wrap label input:checked:before {
     height: 20px;
     width: 20px;
 }
