@@ -1,0 +1,10 @@
+@media screen and (min-width: 768px) {
+    .Home {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .GoToBoard {
+        transform: translateY(-168px);
+    }
+}

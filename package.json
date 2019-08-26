@@ -1,7 +1,11 @@
 {
   "name": "webdevstudios-examiner",
   "version": "0.1.0",
-  "private": true,
+  "author": "Quang Dat Pham <quangdat2000.pham@gmail.com>",
+  "keywords": [
+    "examiner",
+    "online-exam"
+  ],
   "dependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",

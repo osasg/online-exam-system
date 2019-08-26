@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import './App.css';
-
-import Home from './home/Home';
-import Register from './auth/register/Register';
-import Login from './auth/login/Login';
-import Dashboard from './dashboard/Dashboard';
-import ExamPage from './exam/ExamPage'
+import Home from './pages/home/Home';
+import Register from './pages/auth/register/Register';
+import Login from './pages/auth/login/Login';
+import Dashboard from './pages/dashboard/Dashboard';
+import ExamPage from './pages/exam/ExamPage'
 import { ExamingProvider } from './context/ExamingContext';
 
 class App extends Component {
