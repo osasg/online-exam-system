@@ -19,7 +19,7 @@ class Register extends Component {
     changeTab(tabName, next) {
         const { currentTab, tabs } = this.state;
         if (next === 'next') {
-            tabName = tabs[(currentTab + 1) % tabs.length]
+            tabName = tabs[(currentTab + 1) % tabs.length];
         }
 
         const activeBoxTab = document.querySelector(`.box-tab.active`);
