@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './QuestionFlag.css';
 import Flag from '../../../assets/icons/flag.svg';
@@ -25,4 +26,9 @@ export default function QuestionFlagColumn(props) {
             </ExamingConsumer>
         </div>
     );
+}
+
+QuestionFlagColumn.propTypes = {
+    questionNumber: PropTypes.number.isRequired,
+    flag: PropTypes.bool.isRequired
 }

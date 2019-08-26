@@ -15,7 +15,9 @@ export default class FinishTimer extends Component {
         return (
             <div className="FinishTimer">
                 <div className="finish">
-                    <Link to="/dashboard/student"><ButtonPrimary>Finish attempt</ButtonPrimary></Link>
+                    <Link to="/dashboard/student">
+                        <ButtonPrimary handleClick={() => {}}>Finish attempt</ButtonPrimary>
+                    </Link>
                 </div>
                 <ExamingConsumer>
                     {

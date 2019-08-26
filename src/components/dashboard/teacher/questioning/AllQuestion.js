@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './AllQuestion.css';
 import ViewQuestion from './ViewQuestion';
@@ -30,3 +31,7 @@ export default function AllQuestion(props) {
         </div>
     );
 }
+
+AllQuestion.propTypes = {
+    renderQuestion: PropTypes.func.isRequired
+};

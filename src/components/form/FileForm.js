@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './FileForm.css';
 import ButtonPrimary from '../buttons/ButtonPrimary';
 
 export default function FileForm(props) {
-    const { label, onChange, value = {} } = props;
+    const { label, onChange, fileAttach = {} } = props;
     const chooseFile = () => {
         const file = document.querySelector('input[type="file"]');
         file.click();
@@ -23,7 +24,7 @@ export default function FileForm(props) {
                 <span className="label-name">{label}</span>
                 <div className="select-file">
                     <ButtonPrimary handleClick={chooseFile}>Choose file</ButtonPrimary>
-                    <span className="file-name">{value.name ? value.name : 'Choose image, video, audio'}</span>
+                    <span className="file-name">{fileAttach.name ? fileAttach.name : 'Choose image, video, audio'}</span>
                 </div>
                 <input
                     accept="image/*, video/*, audio/*"
@@ -36,4 +37,9 @@ export default function FileForm(props) {
             </label>
         </div>
     );
+}
+FileForm.propTypes = { 
+    label: PropTypes.string.isRequired, 
+    onChange: PropTypes.func.isRequired,
+    fileAttach: PropTypes.object.isRequired
 }

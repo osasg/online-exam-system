@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './AnswerGroup.css';
 import { ExamingConsumer } from '../../../context/ExamingContext';
@@ -28,4 +29,13 @@ export default function AnswerGroup(props) {
             </ExamingConsumer>
         </div>
     );
+}
+
+AnswerGroup.propTypes = {
+    questionNumber: PropTypes.string.isRequired,
+    answerA: PropTypes.string.isRequired,
+    answerB: PropTypes.string.isRequired,
+    answerC: PropTypes.string.isRequired,
+    answerD: PropTypes.string.isRequired,
+    yourAnswer: PropTypes.string.isRequired
 }

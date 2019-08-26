@@ -15,7 +15,7 @@ function Dashboard() {
             <TopNav />
             <Route path="/dashboard/student" component={StudentDashboard} />
             <Route path="/dashboard/teacher" component={TeacherDashboard} />
-            <UserLogin avatarSrc="" fullName="Quang Dat Pham" />
+            <UserLogin avatarSrc="" fullname="Quang Dat Pham" />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './HistoryMode.css';
 
@@ -14,5 +15,10 @@ function HistoryMode(props) {
         </div>
     );
 }
+
+History.propTypes = {
+    teacher: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired
+};
 
 export default HistoryMode;

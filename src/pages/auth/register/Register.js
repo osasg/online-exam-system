@@ -58,15 +58,14 @@ class Register extends Component {
 
     signUp(e) {
         e && e.preventDefault();
-        const { username, password, confirm, email, phone } = this.state;
+        const { username, password, confirm, email, phone } = this.state.info;
+        
         console.log({ username, password, confirm, email, phone });
     }
 
     render() {
-        const {
-            currentTab,
-            username, password, confirm, email, phone
-        } = this.state;
+        const { currentTab } = this.state;
+        const { username, password, confirm, email, phone } = this.state.info;
 
         return (
             <div className="Register">

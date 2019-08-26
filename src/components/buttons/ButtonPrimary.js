@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './ButtonPrimary.css';
 
@@ -7,4 +8,8 @@ export default function ButtonPrimary(props) {
     return (
         <button onClick={() => handleClick()} className="ButtonPrimary">{props.children}</button>
     );
+}
+
+ButtonPrimary.propTypes = {
+    handleClick: PropTypes.func.isRequired
 }

@@ -40,7 +40,7 @@ export default class StudentBoarding extends Component {
                 <div className="enroll-popup">
                     <div className="enter-key">
                         <InputForm onChange={this.changeEnrollKey} value={this.state.enrollKey} label="Key enroll" placeholder="Enter key-enroll"/>
-                        <ButtonPrimary onClick={this.enrollExam}>Enroll</ButtonPrimary>
+                        <ButtonPrimary handleClick={this.enrollExam}>Enroll</ButtonPrimary>
                         <BWButton
                             handleClick={
                                 () => document.querySelector('.enroll-popup').classList.remove('active')

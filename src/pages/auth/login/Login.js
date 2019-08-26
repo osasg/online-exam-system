@@ -42,11 +42,13 @@ export default class Login extends Component {
                         <div className="title">Sign in</div>
                         <div className="form-wrap">
                             <InputForm
+                                tabIndex={1}
                                 value={username}
                                 onChange={(val) => this.changeLogin('username', val)}
                                 label="username"
                                 placeholder="quangdatpham"/>
                             <InputForm
+                                tabIndex={2}
                                 value={password}
                                 onChange={(val) => this.changeLogin('password', val)}
                                 label="password"

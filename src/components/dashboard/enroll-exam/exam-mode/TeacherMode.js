@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './TeacherMode.css';
 import ButtonPrimary from '../../../buttons/ButtonPrimary';
@@ -10,13 +11,17 @@ function TeacherMode(props) {
     return (
         <div className="TeacherMode">
             <div className="do">
-                <ButtonPrimary>Start</ButtonPrimary>
-                <BWButton>Edit</BWButton>
-                <BWButton>Cancel</BWButton>
+                <ButtonPrimary handleClick={() => {}}>Start</ButtonPrimary>
+                <BWButton handleClick={() => {}}>Edit</BWButton>
+                <BWButton handleClick={() => {}}>Cancel</BWButton>
             </div>
             <div className="participants">{participants} participants</div>
         </div>
     );
 }
+
+TeacherMode.propTypes = {
+    participants: PropTypes.number.isRequired
+};
 
 export default TeacherMode;

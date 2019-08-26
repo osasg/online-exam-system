@@ -108,7 +108,7 @@ class Questioning extends Component {
                             onChange={(val) => setQuestionProp('rightAnswer', val)}>
                         </InputForm>
                         <FileForm
-                            value={fileAttach}
+                            fileAttach={fileAttach}
                             label="File attach"
                             onChange={(val) => setQuestionProp('fileAttach', val)}>
                         </FileForm>

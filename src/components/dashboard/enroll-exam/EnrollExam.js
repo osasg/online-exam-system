@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './EnrollExam.css';
 
@@ -24,5 +25,13 @@ function EnrollExam(props) {
         </div>
     );
 }
+
+EnrollExam.propTypes = {
+    name: PropTypes.string.isRequired,
+    subject: PropTypes.string.isRequired,
+    duedate: PropTypes.string.isRequired,
+    duration: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+};
 
 export default EnrollExam;

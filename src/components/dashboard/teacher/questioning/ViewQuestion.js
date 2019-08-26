@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './ViewQuestion.css';
 import BWButton from '../../../buttons/BWButton';
 import { TeacherConsumer } from '../../../../context/TeacherContext';
 
-export default function (props) {
+export default function ViewQuestion(props) {
     const {
         questionNumber,
         question,
@@ -48,4 +49,16 @@ export default function (props) {
             </div>
         </div>
     );
+}
+
+ViewQuestion.propTypes = {
+    questionNumber: PropTypes.number.isRequired,
+    question: PropTypes.string.isRequired,
+    answerA: PropTypes.string.isRequired,
+    answerB: PropTypes.string.isRequired,
+    answerC: PropTypes.string.isRequired,
+    answerD: PropTypes.string.isRequired,
+    rightAnswer: PropTypes.string.isRequired,
+    fileName: PropTypes.string,
+    renderQuestion: PropTypes.func.isRequired
 }

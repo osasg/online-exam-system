@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './QuestionTemplate.css';
-// import QuestionFlag from './QuestionFlagColumn';
 import AnswerGroup from '../answer/AnswerGroup';
 
 export default function QuestionTemplate(props) {
@@ -20,4 +20,14 @@ export default function QuestionTemplate(props) {
             ></AnswerGroup>
         </div>
     );
+}
+
+QuestionTemplate.propTypes = { 
+    question: PropTypes.string.isRequired, 
+    questionNumber: PropTypes.number.isRequired, 
+    answerA: PropTypes.string.isRequired, 
+    answerB: PropTypes.string.isRequired, 
+    answerC: PropTypes.string.isRequired, 
+    answerD: PropTypes.string.isRequired,
+    yourAnswer: PropTypes.string.isRequired
 }

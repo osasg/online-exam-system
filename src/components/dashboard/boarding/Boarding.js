@@ -12,3 +12,5 @@ export default function Boarding() {
         </div>
     );
 }
+
+Boarding.propTypes = {}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './StudentMode.css';
 import ButtonPrimary from '../../../buttons/ButtonPrimary';
@@ -15,7 +16,7 @@ function StudentMode(props) {
                     {
                         ({ attemptNow }) =>
                             <Link onClick={attemptNow} to="/exam/multi-question">
-                                <ButtonPrimary>Attempt now</ButtonPrimary>
+                                <ButtonPrimary handleClick={() => {}}>Attempt now</ButtonPrimary>
                             </Link>
                     }
                 </ExamingConsumer>
@@ -25,5 +26,10 @@ function StudentMode(props) {
         </div>
     );
 }
+
+StudentMode.propTypes = {
+    teacher: PropTypes.string.isRequired,
+    participants: PropTypes.number
+};
 
 export default StudentMode;
