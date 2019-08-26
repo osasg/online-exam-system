@@ -6,8 +6,8 @@ import './Dashboard.css';
 import StudentDashboard from './student/StudentDashboard';
 import TeacherDashboard from './teacher/TeacherDashboard';
 
-import UserLogin from '../../components/dashboard/board/navigate/UserLogin';
-import TopNav from '../../components/dashboard/board/navigate/mobile/TopNav';
+import UserLogin from '../../components/dashboard/user-login/UserLogin';
+import TopNav from '../../components/dashboard/mobile-nav/TopNav';
 
 function Dashboard() {
     return (

@@ -1,4 +1,4 @@
-.Exam {
+.EnrollExam {
     background-color: #fff;
     padding: 24px 36px;
     border-bottom: 1px solid var(--bg-color);
@@ -23,20 +23,20 @@
     margin: 0 16px;
 }
 
-.Exam .bottom {
+.EnrollExam .bottom {
     display: flex;
     align-items: center;
     padding: 0;
 }
 
-.Exam .teacher {
+.EnrollExam .teacher {
     flex: 1 1 0;
     display: flex;
     justify-content: flex-end;
 }
 
 @media screen and (min-width: 768px) {
-    .Exam {
+    .EnrollExam {
         padding: 36px 48px;
         border: 1px solid var(--bg-color);
         border-radius: 12px;

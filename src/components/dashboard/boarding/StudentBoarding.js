@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import './StudentBoarding.css';
 
-import BWButtonBorder from '../../../../buttons/BWButtonBorder';
-import BWButton from '../../../../buttons/BWButton';
-import ButtonPrimary from '../../../../buttons/ButtonPrimary';
-import InputForm from '../../../../form/InputForm';
+import BWButtonBorder from '../../buttons/BWButtonBorder';
+import BWButton from '../../buttons/BWButton';
+import ButtonPrimary from '../../buttons/ButtonPrimary';
+import InputForm from '../../form/InputForm';
 
 export default class StudentBoarding extends Component {
     constructor(props) {

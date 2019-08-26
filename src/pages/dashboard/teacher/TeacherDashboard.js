@@ -2,14 +2,14 @@ import React from 'react';
 
 import './TeacherDashboard.css';
 
-import Board from '../../../components/dashboard/board/page/Board';
+import MainBoard from '../mainboard/MainBoard';
 import { TeacherProvider } from '../../../context/TeacherContext';
 
 function TeacherDashboard() {
     return (
         <div className="TeacherDashboard">
             <TeacherProvider>
-                <Board></Board>
+                <MainBoard></MainBoard>
             </TeacherProvider>
         </div>
     );

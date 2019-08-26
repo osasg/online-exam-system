@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Management.css';
+import './ControlGroup.css';
 
-import Manager from '../../../../../assets/icons/teacher.png';
-import Question from '../../../../../assets/icons/question.png';
+import Manager from '../../../assets/icons/teacher.png';
+import Question from '../../../assets/icons/question.png';
 
-export default function () {
+export default function TeacherControlGroup() {
     return (
-        <div className="TeacherManagement">
+        <div className="TeacherControlGroup">
             <div className="mana">
                 <Link to="/dashboard/teacher">
                     <div className="m">

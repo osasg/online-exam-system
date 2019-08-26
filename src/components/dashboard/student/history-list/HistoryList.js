@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './HistoryList.css';
-import Exam from '../../board/exam/Exam';
-import HistoryMode from '../../board/exam/exam-mode/HistoryMode';
+import EnrollExam from '../../enroll-exam/EnrollExam';
+import HistoryMode from '../../enroll-exam/exam-mode/HistoryMode';
 import { StudentConsumer } from '../../../../context/StudentContext';
 
 export default function () {
@@ -12,7 +12,7 @@ export default function () {
                 {({ historyList }) => historyList.map(
                     ({name, subject, duedate, duration, description, participants, teacher, score}, i) => 
                         <div className="item" key = {i}>
-                            <Exam
+                            <EnrollExam
                                 name={name}
                                 subject={subject}
                                 duedate={duedate}
@@ -20,7 +20,7 @@ export default function () {
                                 description={description}
                             >
                                 <HistoryMode score={score} teacher={teacher}></HistoryMode>
-                            </Exam>
+                            </EnrollExam>
                         </div>
                 )}
             </StudentConsumer>

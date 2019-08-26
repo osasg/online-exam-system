@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BWButtonBorder from '../../../../buttons/BWButtonBorder';
+import BWButtonBorder from '../../buttons/BWButtonBorder';
 
 export default function  TeacherBoarding() {
     return (

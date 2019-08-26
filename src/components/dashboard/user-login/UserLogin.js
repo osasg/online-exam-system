@@ -2,7 +2,7 @@ import React from 'react';
 
 import './UserLogin.css';
 
-import Avatar from '../../../../assets/icons/avatar.png';
+import Avatar from '../../../assets/icons/avatar.png';
 
 export default function UserLogin(props) {
     let { fullName, avatarSrc } = props;

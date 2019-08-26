@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './StudentMode.css';
-import ButtonPrimary from '../../../../buttons/ButtonPrimary';
-import  { ExamingConsumer } from '../../../../../context/ExamingContext';
+import ButtonPrimary from '../../../buttons/ButtonPrimary';
+import  { ExamingConsumer } from '../../../../context/ExamingContext';
 
 function StudentMode(props) {
     const { teacher, participants } = props;

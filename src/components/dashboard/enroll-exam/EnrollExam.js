@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './Exam.css';
+import './EnrollExam.css';
 
-function Exam(props) {
+function EnrollExam(props) {
     const {
         name,
         subject, 
@@ -12,7 +12,7 @@ function Exam(props) {
     } = props;
 
     return (
-        <div className="Exam">
+        <div className="EnrollExam">
             <div className="name">{name}</div>
             <div className="information">
                 {[subject, duedate, duration].join(' -- ')}
@@ -25,4 +25,4 @@ function Exam(props) {
     );
 }
 
-export default Exam;
+export default EnrollExam;

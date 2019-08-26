@@ -2,7 +2,7 @@ import React from 'react';
 
 import './StudentDashboard.css';
 
-import Board from '../../../components/dashboard/board/page/Board';
+import MainBoard from '../mainboard/MainBoard';
 import { StudentProvider } from '../../../context/StudentContext';
 
 
@@ -10,7 +10,7 @@ function StudentDashboard() {
     return (
         <div className="StudentDashboard">
             <StudentProvider>
-                <Board></Board>
+                <MainBoard></MainBoard>
             </StudentProvider>
         </div>
     );

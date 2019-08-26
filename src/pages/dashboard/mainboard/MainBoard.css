@@ -20,11 +20,11 @@
         margin: 0;
     }
 
-    .Board {
+    .MainBoard {
         margin-left: 72px;
     }
 
-    .board-container {
+    .mainboard-container {
         padding: 0 24px;
     }
 
@@ -38,7 +38,7 @@
 }
 
 @media screen and (min-width: 1260px) {
-    .board-container {
+    .mainboard-container {
         padding: 0 48px;
     }
 }

@@ -11,7 +11,7 @@ export default function RightNav() {
     return (
         <div className="RightNav">
             <div className="avatar"></div>
-            <div className="management">
+            <div className="control-group">
                 <Link to="/exam/single-question"><img src={Single} alt="single"></img></Link>
                 <Link to="/exam/multi-question"><img src={Multi} alt="multi"></img></Link>
                 <Link to="/exam/question-answer"><img src={QA} alt="q-a"/></Link>

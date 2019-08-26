@@ -1,4 +1,4 @@
-.navigator {
+.LeftNavigator .navigator {
     z-index: 9999;
     position: fixed;
     top: 0;
@@ -18,25 +18,25 @@
     transition: transform .3s ease;
 }
 
-.navigator.open {
+.LeftNavigator .navigator.open {
     transform: translateY(0);
 }
 
-.management {
+.LeftNavigator .management {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex: 1 1 0;
 }
 
-.LeftNavigateBar .icon {
+.LeftNavigator .icon {
     width: 48px;
     height: 48px;
     opacity: .8;
     /* background-color: #999; */
 }
 
-.LeftNavigateBar .hamburger {
+.LeftNavigator .hamburger {
     z-index: 9999;
     height: 72px;
     position: fixed;
@@ -45,12 +45,12 @@
 }
 
 @media screen and (min-width: 768px) {
-    .navigator {
+    .LeftNavigator .navigator {
         width: 72px;
         transform: translateY(0);
     }
 
-    .hamburger {
+    .LeftNavigator .hamburger {
         display: none;
     }
 }

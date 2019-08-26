@@ -6,20 +6,22 @@
     height: 100%;
 }
 
-.RightNav .management {
+.RightNav .control-group {
     flex: 1 1 0;
     display: flex;
     align-items: center;
     padding-bottom: 128px;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.RightNav .management a {
+.RightNav .control-group a {
     outline: none;
     text-decoration: none;
     margin-bottom: 12px;
 }
 
-.RightNav .management img {
+.RightNav .control-group img {
     width: 40px;
     opacity: .6;
     background-color: rgba(0,0,0, .05);
@@ -28,7 +30,7 @@
     cursor: pointer;
 }
 
-.RightNav .management img:hover {
+.RightNav .control-group img:hover {
     transform: scale(1.1);
     opacity: .8;
 }

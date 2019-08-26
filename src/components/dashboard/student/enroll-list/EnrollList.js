@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './EnrollList.css';
-import Exam from '../../board/exam/Exam';
-import StudentMode from '../../board/exam/exam-mode/StudentMode';
+import EnrollExam from '../../enroll-exam/EnrollExam';
+import StudentMode from '../../enroll-exam/exam-mode/StudentMode';
 import { StudentConsumer } from '../../../../context/StudentContext';
 
 export default function (props) {
@@ -12,7 +12,7 @@ export default function (props) {
                 {({ enrollList }) => enrollList.map(
                     ({ name, subject, duedate, duration, description, participants, teacher }, i) => 
                         <div className="item" key = {i}>
-                            <Exam
+                            <EnrollExam
                                 name={name}
                                 subject={subject}
                                 duedate={duedate}
@@ -20,7 +20,7 @@ export default function (props) {
                                 description={description}
                             >
                                 {<StudentMode participants={participants} teacher={teacher}></StudentMode>}
-                            </Exam>
+                            </EnrollExam>
                         </div>
                 )}
             </StudentConsumer>
