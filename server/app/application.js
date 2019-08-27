@@ -14,7 +14,6 @@ const { requestMiddleware } = require('./middlewares');
 const { rootRoute } = require('./routes');
 const helpers = require('./helpers');
 
-
 const start = async () => {
   const { server: { port, ssl }, logger } = global.configuration;
   let morganFormat = ':method :url :status :res[content-length] - :response-time ms';

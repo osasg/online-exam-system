@@ -3,9 +3,9 @@
 const config = require('./config');
 
 config.initialize()
-  .then(() => {
+  .then(configuration => {
     const server = require('./app/application');
-    
+
     return server.start();
   })
   .then(() => {})
