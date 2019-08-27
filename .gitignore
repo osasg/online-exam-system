@@ -1,4 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# npm
+/**/node_modules
+/**/package-lock.json
+/**/*.gz
 
 # dependencies
 /node_modules
@@ -18,6 +21,14 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# logs
+/**/logs
+/**/*.log
+/**/npm-debug.log*
+/**/yarn-debug.log*
+/**/yarn-error.log*
+/**/lerna-debug.log*
+
+# server
+/server/temp
+/server/env.sh
