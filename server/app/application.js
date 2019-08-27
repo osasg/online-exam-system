@@ -49,7 +49,7 @@ const start = async () => {
 
   app.use(requestMiddleware.wirePreRequest);
 
-  app.use('/user', rootRoute);
+  app.use('/', rootRoute);
 
   app.use(requestMiddleware.wirePostRequest);
 
