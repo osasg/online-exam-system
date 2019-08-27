@@ -8,10 +8,6 @@
     "node": ">= 10.15.3"
   },
   "dependencies": {
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
     "@hapi/joi": "^15.1.0",
     "app-root-path": "^2.2.1",
     "await-to-js": "^2.1.1",
@@ -20,12 +16,17 @@
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
+    "express-json-views": "^0.2.0",
     "helmet": "^3.18.0",
     "http-status": "^1.3.2",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongodb": "^3.2.6",
     "morgan": "^1.9.1",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
     "spdy": "^4.0.0",
     "winston": "^3.2.1"
   },
@@ -43,9 +44,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server:start": "NODE_ENV=production node ./server/index.js",
-    "server:dev": "./server/env.sh && nodemon --inspect server/index.js",
-    "server:dev:chrome-debug": "./server/env.sh && nodemon --inspect-brk ./server/index.js",
-    "server:test": "./server/env.sh && NODE_ENV=test mocha ./server/test/**/*.test.js ./server/test/*.test.js",
+    "server:dev": ". ./server/env.sh && nodemon --inspect server/index.js",
+    "server:dev:chrome-debug": ". ./server/env.sh && nodemon --inspect-brk ./server/index.js",
+    "server:test": ". ./server/env.sh && NODE_ENV=test mocha ./server/test/**/*.test.js ./server/test/*.test.js",
     "server:raml2html": "raml2html ./server/raml/api.raml > ./server/temp/api.html"
   },
   "eslintConfig": {
