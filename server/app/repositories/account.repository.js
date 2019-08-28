@@ -3,9 +3,9 @@ const moment = require('moment');
 const { ObjectId } = require('mongodb');
 
 const { db } = global.configuration;
-const collection = db.collection('accounts')
+const collection = db.collection('accounts');
 
-const findById = async _id => {
+const findById = async ({ _id }) => {
   return collection.findOne({ _id: ObjectId(_id) });
 }
 
@@ -23,7 +23,7 @@ const update = async ({ _id, firstname, lastname, roles }) => {
   return collection.updateOne({ _id: ObjectId(_id) }, { $set: { firstname, lastname, roles } });
 }
 
-const remove = async _id => {
+const remove = async ({ _id }) => {
   return collection.deleteOne({ _id: ObjectId(_id) });
 }
 

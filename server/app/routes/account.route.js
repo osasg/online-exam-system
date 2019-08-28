@@ -11,12 +11,12 @@ router.get('/profile',
 
 router.post('/', controller.create);
 
-router.put('/:id',
+router.put('/:_id',
   auth.requireAuth,
   controller.update
 );
 
-router.delete('/:id',
+router.delete('/:_id',
   auth.requireAuth,
   controller.remove
 );

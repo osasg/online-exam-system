@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const accountRoute = require('./account.route');
 const authRoute = require('./auth.route');
+const accountRoute = require('./account.route');
+const examRoute = require('./exam.route');
 
 router.get('/', (req, res) => {
   res.send({
@@ -72,5 +73,7 @@ I love sharing my knowledge. It is not property and therefore can not be owned b
 router.use('/api/auth', authRoute);
 
 router.use('/api/accounts', accountRoute);
+
+router.use('/api/exam', examRoute);
 
 module.exports = router;
