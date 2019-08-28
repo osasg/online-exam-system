@@ -1,0 +1,42 @@
+exams:
+  _id: ObjectId
+  teacher_id: string
+  subject_id: string
+  participant_ids: string[]
+  name: string
+  descriptions: string
+  status: string
+  duration: string
+  startDate: string
+  dueDate: string
+  questions:
+    - no: number
+      a: string
+      b: string
+      c: string
+      d: string
+      rightAnswer: string
+      fileAttach: string
+
+examHistories:
+  _id: ObjectId
+  student_id: string
+  exam_id: string
+  submitDate: string
+  questions:
+    - no: number
+      answer: string
+      flag: bool
+
+subjects:
+  _id: ObjectId
+  name: string
+  description: string
+  exam_ids: string[]
+
+accounts:
+  _id: OjbectId
+  firstname: string
+  lastname: string
+  email: string
+  hasPassword: string
