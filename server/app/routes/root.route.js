@@ -3,7 +3,8 @@ const router = express.Router();
 
 const authRoute = require('./auth.route');
 const accountRoute = require('./account.route');
-const examRoute = require('./exam.route');
+const examRoute = require('./exam.route')
+const subjectRoute = require('./subject.route');
 
 router.get('/', (req, res) => {
   res.send({
@@ -74,6 +75,8 @@ router.use('/api/auth', authRoute);
 
 router.use('/api/accounts', accountRoute);
 
-router.use('/api/exam', examRoute);
+router.use('/api/exams', examRoute);
+
+router.use('/api/subjects', subjectRoute);
 
 module.exports = router;
