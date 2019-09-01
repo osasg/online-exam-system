@@ -1,8 +1,9 @@
 const { to } = require('await-to-js');
 
-const { subjectRepository: SUBJECT } = require('../repositories');
+const { subjectRepository: Subject } = require('../repositories');
 
 const messages = {
+  SUBJECT_FIND_ALL: 'SUBJECT_FIND_ALL',
   SUBJECT_FIND_BY_ID: 'SUBJECT_FIND_BY_ID',
   SUBJECT_CREATED: 'SUBJECT_CREATED',
   SUBJECT_UPDATED: 'SUBJECT_UPDATED',
@@ -10,11 +11,18 @@ const messages = {
 }
 
 const findAll = async (req, res, next) => {
-  const [ err, subjects ] = await to(subject.findAll());
+  const [ err, subjects ] = await to(Subject.findAll());
+  if (err) return next(err);
+
+  res.send({
+    success: true,
+    message: SUBJECT_FIND_ALL,
+    subjects
+  });
 }
 
 const findById = async (req, res, next) => {
-  const [ err, subject ] = await to(subject.findById(req.params._id));
+  const [ err, subject ] = await to(Subject.findById(req.params._id));
   if (err) return next(err);
 
   res.send({
@@ -25,7 +33,7 @@ const findById = async (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-  const [ err, subject ] = await to(subject.create(req.body));
+  const [ err, subject ] = await to(Subject.create(req.body));
   if (err) return next(err);
   
   res.send({
@@ -36,7 +44,7 @@ const create = async (req, res, next) => {
 }
 
 const update = async (req, res, next) => {
-  const [ err ] = await to(subject.update(req.body));
+  const [ err ] = await to(Subject.update(req.body));
   if (err) return next(err);
 
   res.send({

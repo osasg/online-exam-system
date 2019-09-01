@@ -3,6 +3,7 @@ const { to } = require('await-to-js');
 const { examRepository: Exam } = require('../repositories');
 
 const messages = {
+  EXAM_FIND_ALL: 'EXAM_FIND_ALL',
   EXAM_FIND_BY_ID: 'EXAM_FIND_BY_ID',
   EXAM_CREATED: 'EXAM_CREATED',
   EXAM_UPDATED: 'EXAM_UPDATED',
@@ -11,6 +12,13 @@ const messages = {
 
 const findAll = async (req, res, next) => {
   const [ err, exams ] = await to(Exam.findAll());
+  if (err) return next(err);
+
+  res.send({
+    success: true,
+    message: messages.EXAM_FIND_All,
+    exams
+  });
 }
 
 const findById = async (req, res, next) => {
