@@ -4,10 +4,12 @@ const jwt = require('jsonwebtoken');
 const status = require('http-status');
 
 const { accountRepository: Account } = require('../repositories');
+const { signInValidator, signUpValidator } = require('../validators');
 
 const postSignIn = async (req, res, next) => {
   const { username, password } = req.body;
-  const { error, value } = loginValidator.validate({ username, password });
+  const { error, value } = signInValidator.validate({ username, password });
+
   if (error)
     return res.status(status.OK)
       .send({
@@ -17,10 +19,8 @@ const postSignIn = async (req, res, next) => {
         token: null
       });
 
-  const [ err0, response ] = await to(Account.findByUsername({ username }));
+  const [ err0, account ] = await to(Account.findByUsername({ username }));
   if (err0) return next(err0);
-
-  const account = response ? response.account : {};
 
   if (!account)
     return res.status(status.OK)
@@ -57,16 +57,24 @@ const postSignIn = async (req, res, next) => {
 }
 
 const postSignUp = async (req, res, next) => {
-  const { username, password, email, firstname, lastname } = req.body;
-  const newAccount = { username, password, email, firstname, lastname };
+  const { error, value } = signUpValidator.validate(req.body);
 
-  const [ err, response ] = await to(Account.create({ account: newAccount }));
+  if (error)
+    return res.status(status.OK)
+      .send({
+        success: false,
+        message: 'ValidationError',
+        error,
+        token: null
+      });
+
+  const [ err, account ] = await to(Account.create(req.body));
   if (err) return next(err);
 
   res.status(200).send({
     success: true,
     message: "Registered",
-    token: generateJWT(response.account)
+    token: generateJWT(account)
   });
 }
 
