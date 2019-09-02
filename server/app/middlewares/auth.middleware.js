@@ -47,7 +47,6 @@ const requireAuthEmail = async (req, res, next) => {
 
 const requireAuth = async (req, res, next) => {
   let token = req.headers['x-access-token'] || req.headers['authorization'];
-
   if (!token) {
     return res.status(status.UNAUTHORIZED).send({
       success: false,

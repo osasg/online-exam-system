@@ -5,8 +5,19 @@ const { ObjectId } = require('mongodb');
 const { db } = global.configuration;
 const collection = db.collection('accounts');
 
+const findAll = ({  }) => new Promise((resolve, reject) => {
+  const cursor = collection.find({});
+  const accounts = [];
+
+  cursor.forEach(acc => accounts.push(acc), () => resolve(accounts));
+})
+
 const findById = async ({ _id }) => {
   return collection.findOne({ _id: ObjectId(_id) });
+}
+
+const findByUsername = async ({ username }) => {
+  return collection.findOne({ username });
 }
 
 const create = async ({ username, password, email, lastname, firstname }) => {
@@ -41,7 +52,9 @@ const randomKey = length => Array.from({ length })
   .join('');
 
 module.exports = {
+  findAll,
   findById,
+  findByUsername,
   create,
   update,
   remove
