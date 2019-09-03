@@ -7,6 +7,7 @@ const { authMiddleware: auth } = require('../middlewares');
 router.get('/', controller.findAll);
 
 router.post('/',
+  auth.requireAuth,
   auth.requireRole([ 'teacher' ]),
   controller.create
 );
@@ -14,11 +15,13 @@ router.post('/',
 router.get('/:_id', controller.findById);
 
 router.put('/:_id',
+  auth.requireAuth,
   auth.requireRole([ 'teacher' ]),
   controller.update
 );
 
 router.delete('/:_id',
+  auth.requireAuth,
   auth.requireRole([ 'teacher' ]),
   controller.remove
 );

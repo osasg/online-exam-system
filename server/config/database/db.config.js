@@ -1,8 +1,8 @@
 module.exports = {
-  connectionString: process.env.CONNECTION_STRING,
-  dbName: process.env.DB_NAME || 'dev_ffoodd',
-  user: process.env.DB_USER || 'ffoodd',
-  password: process.env.DB_PASS || 'ffoodd',
+  connectionString: process.env.CONNECTION_STRING || 'mongodb://localhost:27017/',
+  dbName: process.env.DB_NAME || 'dev_online-exam-system',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   attributes: {
     useUnifiedTopology: true,
     useNewUrlParser: true,

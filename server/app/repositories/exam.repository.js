@@ -1,14 +1,25 @@
 const moment = require('moment');
 const { ObjectId } = require('mongodb');
 
+const { utils } = require('../libs');
+
 const { db } = global.configuration;
 const collection = db.collection('exams');
 
-const findAll = () => new Promise((resolve, reject) => {
-  const cursor = collection.find();
+const findAll = ({ teacher_id, subject_id, name, status, skip, limit }) => new Promise((resolve, reject) => {
+  const queryOptions = utils.filterEmptyFields({ teacher_id, subject_id, name, status });
+  const cursor = collection.find(queryOptions)
+    .skip(parseInt(skip))
+    .limit(parseInt(limit));
+
   const exams = [];
 
-  cursor.forEach(doc => exams.push(doc), () => resolve(exams));
+  cursor.forEach(doc => exams.push(doc), err => {
+    if (err)
+      return reject(err);
+
+    resolve(exams)
+  });
 })
 
 const findById = async ({ _id }) => {
@@ -31,7 +42,9 @@ const create = async ({
   exam.description = description;
   exam.status = status;
 
-  return collection.insertOne(exam);
+  const response = await collection.insertOne(exam);
+
+  return response.ops[0];
 }
 
 const update = async ({
