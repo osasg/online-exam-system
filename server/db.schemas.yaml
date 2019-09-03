@@ -1,3 +1,8 @@
+examStatus:
+  - WAITING
+  - CONDUCTING
+  - CLOSED
+
 exams:
   _id: ObjectId
   teacher_id: string

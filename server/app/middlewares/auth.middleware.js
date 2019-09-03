@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const status = require('http-status');
 const { to } = require('await-to-js');
 
+const { accountRepository: Account } = require('../repositories');
+
 const { logger } = global.configuration;
 
 const requireAuthEmail = async (req, res, next) => {
@@ -73,13 +75,13 @@ const requireRole = roles => async (req, res, next) => {
   const [ err, accountRoles ] = await to(Account.findRolesById({ _id: req.user._id }));
   if (err) return next(err);
 
-  if (roles.some(role => accountRoles.includes(role)))
-    return next();
-  
-  res.status(status.FORBIDDEN).send({
-    success: false,
-    message: 'Do not have permission to access this resource',
-  });
+  if (!accountRoles || (accountRoles && !roles.some(role => accountRoles.includes(role))))
+    return res.status(status.FORBIDDEN).send({
+      success: false,
+      message: 'Do not have permission to access this resource',
+    });
+
+  next();
 };
     
 module.exports = {

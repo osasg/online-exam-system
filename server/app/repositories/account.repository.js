@@ -20,6 +20,15 @@ const findByUsername = async ({ username }) => {
   return collection.findOne({ username });
 }
 
+const findRolesById = async ({ _id }) => {
+  const account = await collection.findOne({ _id: ObjectId(_id) });
+
+  if (!account)
+    return null;
+  
+  return account.roles;
+}
+
 const create = async ({ username, password, email, lastname, firstname }) => {
   const hashPassword = await bcrypt.hash(password, 10);
 
@@ -54,6 +63,7 @@ const randomKey = length => Array.from({ length })
 module.exports = {
   findAll,
   findById,
+  findRolesById,
   findByUsername,
   create,
   update,
