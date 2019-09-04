@@ -61,6 +61,18 @@ describe('Exam test', () => {
       });
   });
 
+  it('should enroll the exam', done => {
+    agent.patch(`/api/exams/enroll/${exam_id}`)
+      .expect('Content-type', /json/)
+      .expect(status.OK)
+      .end((err, res) => {
+        assert.equal(err, null);
+        assert.equal(res.body.success, true);
+        assert.equal(res.body.message, 'EXAM_ENROLLED');
+        done();
+      })
+  });
+
   it('should update exam', done => {
     agent.put(`/api/exams/${exam_id}`)
       .send({

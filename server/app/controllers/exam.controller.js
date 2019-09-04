@@ -1,11 +1,13 @@
 const { to } = require('await-to-js');
 
-const { examRepository: Exam } = require('../repositories');
+const { examRepository: Exam, examHistoryRepository: ExamHistory } = require('../repositories');
 const { examValidator } = require('../validators/');
 
 const messages = {
   EXAM_FOUND: 'EXAM_FOUND',
   EXAM_NOT_FOUND: 'EXAM_NOT_FOUND',
+  EXAM_ENROLLED: 'EXAM_ENROLLED',
+  EXAM_COULD_NOT_ENROLL: 'EXAM_COULD_NOT_ENROLL',
   EXAM_CREATED: 'EXAM_CREATED',
   EXAM_UPDATED: 'EXAM_UPDATED',
   EXAM_REMOVED: 'EXAM_REMOVED',
@@ -41,6 +43,39 @@ const findById = async (req, res, next) => {
   });
 }
 
+const enroll = async (req, res, next) => {
+  const { _id } = req.params;
+  try {
+    const exam = await Exam.findById({ _id });
+    if (!exam)
+      return res.send({
+        success: false,
+        message: messages.EXAM_NOT_FOUND
+      });
+
+    const examHistory = await ExamHistory.create({ exam_id: _id, });
+    if (!examHistory)
+      return res.send({
+        success: false,
+        message: messages.EXAM_COULD_NOT_ENROLL
+      });
+
+    const response = await Exam.addEnrollment({ _id, enrollment_id: examHistory._id });
+    if (response.modifiedCount === 0)
+      return res.send({
+        success: false,
+        message: messages.EXAM_COULD_NOT_ENROLL
+      });
+
+    res.send({
+      success: true,
+      message: messages.EXAM_ENROLLED
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 const create = async (req, res, next) => {
   const { err0, value } = examValidator.validate(req.body);
   if (err0)
@@ -70,8 +105,8 @@ const update = async (req, res, next) => {
       error: err0
     });
 
-  const [ err ] = await to(Exam.update(req.body));
-  if (err) return next(err);
+  const [ err1 ] = await to(Exam.update(req.body));
+  if (err1) return next(err1);
 
   res.send({
     success: true,
@@ -92,6 +127,7 @@ const remove = async (req, res, next) => {
 module.exports = {
   findAll,
   findById,
+  enroll,
   create,
   update,
   remove

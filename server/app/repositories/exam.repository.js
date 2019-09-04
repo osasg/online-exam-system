@@ -26,8 +26,14 @@ const findById = async ({ _id }) => {
   return collection.findOne({ _id: ObjectId(_id) });
 }
 
+const addEnrollment = async ({ _id, enrollment_id }) => {
+  return collection.updateOne({ _id: ObjectId(_id) }, { $push: {
+    enrollment_ids: enrollment_id
+  }});
+}
+
 const create = async ({
-  name, subject_id, teacher_id, participant_ids,
+  name, subject_id, teacher_id,
   duration, dueDate, startDate, description, status
 }) => {
   const exam = {};
@@ -35,7 +41,6 @@ const create = async ({
   exam.name = name;
   exam.subject_id = subject_id;
   exam.teacher_id = teacher_id;
-  exam.participant_ids = participant_ids;
   exam.duration = duration;
   exam.dueDate = dueDate;
   exam.startDate = startDate;
@@ -49,7 +54,7 @@ const create = async ({
 
 const update = async ({
   _id,
-  name, subject_id, teacher_id, participant_ids,
+  name, subject_id, teacher_id, enrollment_ids,
   duration, dueDate, startDate, description, status
 }) => {
   const exam = {};
@@ -57,7 +62,7 @@ const update = async ({
   exam.name = name;
   exam.subject_id = subject_id;
   exam.teacher_id = teacher_id;
-  exam.participant_ids = participant_ids;
+  exam.enrollment_ids = enrollment_ids;
   exam.duration = duration;
   exam.dueDate = dueDate;
   exam.startDate = startDate;
@@ -74,6 +79,7 @@ const remove = async ({ _id }) => {
 module.exports = {
   findAll,
   findById,
+  addEnrollment,
   create,
   update,
   remove

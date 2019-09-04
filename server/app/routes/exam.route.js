@@ -14,6 +14,11 @@ router.post('/',
 
 router.get('/:_id', controller.findById);
 
+router.patch('/enroll/:_id',
+  auth.requireAuth,
+  controller.enroll
+);
+
 router.put('/:_id',
   auth.requireAuth,
   auth.requireRole([ 'teacher' ]),

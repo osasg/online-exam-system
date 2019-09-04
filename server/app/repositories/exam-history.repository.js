@@ -21,6 +21,7 @@ const create = async ({ exam_id, student_id, questions  }) => {
   examHistory.exam_id = exam_id;
   examHistory.student_id = student_id;
   examHistory.questions = questions;
+  examHistory.status = 'ENROLLED';
 
   const response = await collection.insertOne(examHistory);
   

@@ -3,11 +3,16 @@ examStatus:
   - CONDUCTING
   - CLOSED
 
+examHistoryStatus:
+  - ENROLLED
+  - DOING
+  - ENDED
+
 exams:
   _id: ObjectId
   teacher_id: string
   subject_id: string
-  participant_ids: string[]
+  enrollment_ids: string[]
   name: string
   descriptions: string
   status: string
