@@ -2,6 +2,7 @@ const assert = require('assert');
 const request = require('supertest');
 const status = require('http-status');
 const bcrypt = require('bcrypt');
+const ObjectId = require('mongodb').ObjectId;
 require('should');
 
 const database = require('../config/database/mongo.config');
@@ -10,10 +11,10 @@ let db;
 const SERVER_ADDRESS = '127.0.0.1:3001';
 const agent = request.agent(SERVER_ADDRESS);
 
-const examHistory = require('./mock/exam-history.mock');
 const exam = require('./mock/exam.mock');
 
 let examHistory_id;
+let exam_id;
 
 describe('examHistory test', () => {
   before(async () => {
@@ -28,19 +29,18 @@ describe('examHistory test', () => {
     await db.collection('accounts').updateOne({ username: 'teacher' }, { $push: { roles: 'teacher' } });
 
     agent.set('Authorization', `Bearer ${res.body.token}`);
-
-    const examDoc = await agent.post('/api/exams').send(exam);
-    examHistory.exam_id = examDoc._id;
   });
 
   after(() => {
     db.collection('accounts').drop();
+    db.collection('exams').deleteOne({ _id: ObjectId(exam_id) });
   })
 
   it('should enroll the exam', done => {
     agent.post('/api/exams/')
       .send(exam)
       .end((err, res) => {
+        exam_id = res.body.exam._id;
         agent.patch(`/api/exams/enroll/${res.body.exam._id}`)
           .expect('Content-type', /json/)
           .expect(status.OK)
@@ -55,7 +55,7 @@ describe('examHistory test', () => {
   });
 
   it('should find enrolledExams', done => {
-    agent.get(`/api/exam-histories/enrollments`)
+    agent.get(`/api/exam-histories/enrolled-exams`)
       .expect('Content-type', /json/)
       .expect(status.OK)
       .end((err, res) => {
@@ -101,18 +101,6 @@ describe('examHistory test', () => {
       });
   });
 
-  it('should delete delete examHistory by _id', done => {
-    agent.delete(`/api/exam-histories/${examHistory_id}`)
-      .expect('Content-type', /json/)
-      .expect(status.OK)
-      .end((err, res) => {
-        assert.equal(err, null);
-        assert.equal(res.body.success, true);
-        assert.equal(res.body.message, 'EXAM_HISTORY_REMOVED');
-        done();
-      });
-  });
-
   it('should start the exam', done => {
     agent.patch(`/api/exam-histories/start/${examHistory_id}`)
       .expect('Content-type', /json/)
@@ -127,7 +115,7 @@ describe('examHistory test', () => {
 
   it('should update single answer', done => {
     agent.patch(`/api/exam-histories/${examHistory_id}`)
-      .send({ no: 1, answer: 'a', flag: true })
+      .send({ no: 1, answer: 'b', flag: false })
       .expect('Content-type', /json/)
       .expect(status.OK)
       .end((err, res) => {
@@ -146,6 +134,33 @@ describe('examHistory test', () => {
         assert.equal(err, null);
         assert.equal(res.body.success, true);
         assert.equal(res.body.message, 'EXAM_HISTORY_ENDED');
+        done();
+      });
+  });
+
+  it('should find endedExams', done => {
+    agent.get(`/api/exam-histories/ended-exams`)
+      .expect('Content-type', /json/)
+      .expect(status.OK)
+      .end((err, res) => {
+        assert.equal(err, null);
+        assert.equal(res.body.success, true);
+        assert.equal(res.body.message, 'EXAM_HISTORY_FIND_ENDED_EXAM');
+        assert.notEqual(res.body.endedExams, null);
+        assert.equal(res.body.endedExams.constructor, Array);
+        assert.equal(res.body.endedExams.length, 1);
+        done();
+      });
+  });
+
+  it('should delete delete examHistory by _id', done => {
+    agent.delete(`/api/exam-histories/${examHistory_id}`)
+      .expect('Content-type', /json/)
+      .expect(status.OK)
+      .end((err, res) => {
+        assert.equal(err, null);
+        assert.equal(res.body.success, true);
+        assert.equal(res.body.message, 'EXAM_HISTORY_REMOVED');
         done();
       });
   });

@@ -15,11 +15,11 @@ const findById = async ({ _id }) => {
   return collection.findOne({ _id: ObjectId(_id) });
 }
 
-const findEnrolledExams = ({ student_id }) => new Promise((resolve, reject) => {
-  const cursor = collection.find({ student_id });
-  const enrolledExams = [];
+const findByStatus = ({ student_id, status }) => new Promise((resolve, reject) => {
+  const cursor = collection.find({ student_id, status });
+  const exams = [];
 
-  cursor.forEach(doc => enrolledExams.push(doc), () => resolve(enrolledExams));
+  cursor.forEach(doc => exams.push(doc), () => resolve(exams));
 })
 
 const create = async ({ exam_id, student_id, questions  }) => {
@@ -66,7 +66,7 @@ const updateStatus = async ({ _id, status }) => {
 module.exports = {
   findAll,
   findById,
-  findEnrolledExams,
+  findByStatus,
   create,
   update,
   remove,

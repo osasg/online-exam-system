@@ -9,7 +9,9 @@ router.get('/',
   controller.findAll
 );
 
-router.get('/enrollments', controller.findEnrolledExams);
+router.get('/enrolled-exams', controller.findEnrolledExams);
+
+router.get('/ended-exams', controller.findEndedExams);
 
 router.patch('/start/:_id', controller.start);
 
