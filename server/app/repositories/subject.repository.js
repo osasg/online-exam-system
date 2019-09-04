@@ -21,10 +21,11 @@ const create = async ({ name, description }) => {
   subject.name = name;
   subject.description = description;
 
-  return collection.insertOne(subject);
+  const response = await collection.insertOne(subject);
+  return response.ops[0];
 }
 
-const update = async ({ name, description }) => {
+const update = async ({ _id, name, description }) => {
   const subject = {};
 
   subject.name = name;

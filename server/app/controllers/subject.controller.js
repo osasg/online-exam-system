@@ -4,7 +4,8 @@ const { subjectRepository: Subject } = require('../repositories');
 
 const messages = {
   SUBJECT_FIND_ALL: 'SUBJECT_FIND_ALL',
-  SUBJECT_FIND_BY_ID: 'SUBJECT_FIND_BY_ID',
+  SUBJECT_NOT_FOUND: 'SUBJECT_NOT_FOUND',
+  SUBJECT_FOUND: 'SUBJECT_FOUND',
   SUBJECT_CREATED: 'SUBJECT_CREATED',
   SUBJECT_UPDATED: 'SUBJECT_UPDATED',
   SUBJECT_REMOVED: 'SUBJECT_REMOVED'
@@ -22,12 +23,19 @@ const findAll = async (req, res, next) => {
 }
 
 const findById = async (req, res, next) => {
-  const [ err, subject ] = await to(Subject.findById(req.params._id));
+  const [ err, subject ] = await to(Subject.findById({ _id: req.params._id }));
   if (err) return next(err);
+
+  if (!subject)
+    return res.send({
+      success: false,
+      message: messages.SUBJECT_NOT_FOUND,
+      subject: null
+    });
 
   res.send({
     success: true,
-    message: messages.SUBJECT_FIND_BY_ID,
+    message: messages.SUBJECT_FOUND,
     subject
   });
 }
@@ -44,17 +52,18 @@ const create = async (req, res, next) => {
 }
 
 const update = async (req, res, next) => {
-  const [ err ] = await to(Subject.update(req.body));
+  const { _id } = req.params;
+  const [ err ] = await to(Subject.update({ _id, ...req.body }));
   if (err) return next(err);
 
   res.send({
-    success: false,
+    success: true,
     message: messages.SUBJECT_UPDATED
   });
 }
 
 const remove = async (req, res, next) => {
-  const [ err ] = await to(SUBJECT.remove(req.user._id));
+  const [ err ] = await to(Subject.remove({ _id: req.params._id }));
   if (err) return next(err);
 
   res.send({

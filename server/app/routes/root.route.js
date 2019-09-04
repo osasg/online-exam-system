@@ -7,6 +7,8 @@ const examRoute = require('./exam.route')
 const subjectRoute = require('./subject.route');
 const examHistoryRoute = require('./exam-history.route');
 
+const { authMiddleware: auth } = require('../middlewares');
+
 const author = require('../../../author.json');
 
 router.get('/', (req, res) => {
@@ -24,8 +26,14 @@ router.use('/api/accounts', accountRoute);
 
 router.use('/api/exams', examRoute);
 
-router.use('/api/subjects', subjectRoute);
+router.use('/api/subjects',
+  auth.requireAuth,
+  subjectRoute
+);
 
-router.use('/api/exam-histories', examHistoryRoute);
+router.use('/api/exam-histories',
+  auth.requireAuth,
+  examHistoryRoute
+);
 
 module.exports = router;
