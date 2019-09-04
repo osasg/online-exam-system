@@ -10,7 +10,8 @@ const messages = {
   EXAM_HISTORY_STARTED: 'EXAM_HISTORY_STARTED',
   EXAM_HISTORY_UPDATED: 'EXAM_HISTORY_UPDATED',
   EXAM_HISTORY_UPDATED_SINGLE_ANSWER: 'EXAM_HISTORY_UPDATED_SINGLE_ANSWER',
-  EXAM_HISTORY_REMOVED: 'EXAM_HISTORY_REMOVED'
+  EXAM_HISTORY_REMOVED: 'EXAM_HISTORY_REMOVED',
+  EXAM_HISTORY_ENDED: 'EXAM_HISTORY_ENDED'
 }
 
 const findAll = async (req, res, next) => {
@@ -63,6 +64,16 @@ const start = async (req, res, next) => {
   });
 }
 
+const end = async (req, res, next) => {
+  const [ err ] = await to(ExamHistory.updateStatus({ _id: req.params._id, status: 'ENDED' }));
+  if (err) return next(err);
+
+  res.send({
+    success: true,
+    message: messages.EXAM_HISTORY_ENDED
+  });
+}
+
 const update = async (req, res, next) => {
   const { _id } = req.params;
   const [ err ] = await to(ExamHistory.update({ _id, ...req.body }));
@@ -100,6 +111,7 @@ module.exports = {
   findById,
   findEnrolledExams,
   start,
+  end,
   update,
   updateSingleAnswer,
   remove

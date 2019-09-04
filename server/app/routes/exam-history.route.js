@@ -13,6 +13,8 @@ router.get('/enrollments', controller.findEnrolledExams);
 
 router.patch('/start/:_id', controller.start);
 
+router.patch('/end/:_id', controller.end);
+
 router.get('/:_id', controller.findById);
 
 router.put('/:_id', controller.update);

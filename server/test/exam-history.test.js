@@ -137,4 +137,16 @@ describe('examHistory test', () => {
         done();
       });
   })
+
+  it('should end exam', done => {
+    agent.patch(`/api/exam-histories/end/${examHistory_id}`)
+      .expect('Content-type', /json/)
+      .expect(status.OK)
+      .end((err, res) => {
+        assert.equal(err, null);
+        assert.equal(res.body.success, true);
+        assert.equal(res.body.message, 'EXAM_HISTORY_ENDED');
+        done();
+      });
+  });
 });
