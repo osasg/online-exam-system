@@ -10,11 +10,12 @@ let db;
 const SERVER_ADDRESS = '127.0.0.1:3001';
 const agent = request.agent(SERVER_ADDRESS);
 
+const examHistory = require('./mock/exam-history.mock');
 const exam = require('./mock/exam.mock');
 
-let exam_id;
+let examHistory_id;
 
-describe('Exam test', () => {
+describe('examHistory test', () => {
   before(async () => {
     const res = await agent.post('/api/auth/signup')
       .send({
@@ -22,69 +23,72 @@ describe('Exam test', () => {
         password: 'teacher',
         email: 'teacher@gmail.com'
       });
-    
+
     db = await database.connect();
     await db.collection('accounts').updateOne({ username: 'teacher' }, { $push: { roles: 'teacher' } });
 
     agent.set('Authorization', `Bearer ${res.body.token}`);
+
+    const examDoc = await agent.post('/api/exams').send(exam);
+    examHistory.exam_id = examDoc._id;
   });
 
   after(() => {
     db.collection('accounts').drop();
   })
 
-  it('should create an exam', done => {
-    agent.post('/api/exams/')
-      .send(exam)
+  it('should create a examHistory', done => {
+    agent.post('/api/exam-histories/')
+      .send(examHistory)
       .expect('Content-type', /json/)
       .expect(status.OK)
       .end((err, res) => {
         assert.equal(err, null);
         assert.equal(res.body.success, true);
-        assert.equal(res.body.message, 'EXAM_CREATED');
-        assert.notEqual(res.body.exam, null);
-        exam_id = res.body.exam._id;
+        assert.equal(res.body.message, 'EXAM_HISTORY_CREATED');
+        assert.notEqual(res.body.examHistory, null);
+        examHistory_id = res.body.examHistory._id;
         done();
       });
   });
 
-  it('should find exam by _id', done => {
-    agent.get(`/api/exams/${exam_id}`)
+  it('should find examHistory by _id', done => {
+    agent.get(`/api/exam-histories/${examHistory_id}`)
       .expect('Content-type', /json/)
       .expect(status.OK)
       .end((err, res) => {
         assert.equal(err, null);
         assert.equal(res.body.success, true);
-        assert.equal(res.body.message, 'EXAM_FOUND');
-        assert.notEqual(res.body.exam, null);
+        assert.equal(res.body.message, 'EXAM_HISTORY_FOUND');
+        assert.notEqual(res.body.examHistory, null);
         done();
       });
   });
 
-  it('should update exam', done => {
-    agent.put(`/api/exams/${exam_id}`)
+  it('should update examHistory', done => {
+    agent.put(`/api/exam-histories/${examHistory_id}`)
       .send({
-        descriptions: 'update description',
-        status: 'CLOSED'
+        name: 'update name',
+        descriptions: 'update description'
       })
       .expect('Content-type', /json/)
       .expect(status.OK)
       .end((err, res) => {
         assert.equal(err, null);
         assert.equal(res.body.success, true);
-        assert.equal(res.body.message, 'EXAM_UPDATED');
+        assert.equal(res.body.message, 'EXAM_HISTORY_UPDATED');
         done();
       });
   });
 
-  it('should delete delete exam by _id', done => {
-    agent.delete(`/api/exams/${exam_id}`)
+  it('should delete delete examHistory by _id', done => {
+    agent.delete(`/api/exam-histories/${examHistory_id}`)
       .expect('Content-type', /json/)
       .expect(status.OK)
       .end((err, res) => {
         assert.equal(err, null);
         assert.equal(res.body.success, true);
-        assert.equal(res.body.message, 'EXAM_REMOVED');
+        assert.equal(res.body.message, 'EXAM_HISTORY_REMOVED');
         done();
       });
   });

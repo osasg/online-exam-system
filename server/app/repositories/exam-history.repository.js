@@ -22,10 +22,12 @@ const create = async ({ exam_id, student_id, questions  }) => {
   examHistory.student_id = student_id;
   examHistory.questions = questions;
 
-  return collection.insertOne(examHistory);
+  const response = await collection.insertOne(examHistory);
+  
+  return response.ops[0];
 }
 
-const update = async ({ questions  }) => {
+const update = async ({ _id, questions  }) => {
   const examHistory = {};
 
   examHistory.questions = questions;

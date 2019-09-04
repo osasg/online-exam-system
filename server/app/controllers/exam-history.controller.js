@@ -4,7 +4,8 @@ const { examHistoryRepository: ExamHistory } = require('../repositories');
 
 const messages = {
   EXAM_HISTORY_FIND_ALL: 'EXAM_HISTORY_FIND_ALL',
-  EXAM_HISTORY_FIND_BY_ID: 'EXAM_HISTORY_FIND_BY_ID',
+  EXAM_HISTORY_FOUND: 'EXAM_HISTORY_FOUND',
+  EXAM_HISTORY_NOT_FOUND: 'EXAM_HISTORY_NOT_FOUND',
   EXAM_HISTORY_CREATED: 'EXAM_HISTORY_CREATED',
   EXAM_HISTORY_UPDATED: 'EXAM_HISTORY_UPDATED',
   EXAM_HISTORY_REMOVED: 'EXAM_HISTORY_REMOVED'
@@ -22,12 +23,19 @@ const findAll = async (req, res, next) => {
 }
 
 const findById = async (req, res, next) => {
-  const [ err, examHistory ] = await to(ExamHistory.findById(req.params._id));
+  const [ err, examHistory ] = await to(ExamHistory.findById({ _id: req.params._id }));
   if (err) return next(err);
+
+  if(!examHistory)
+    return res.send({
+      success: true,
+      message: messages.EXAM_HISTORY_NOT_FOUND,
+      examHistory: null
+    });
 
   res.send({
     success: true,
-    message: messages.EXAM_HISTORY_FIND_BY_ID,
+    message: messages.EXAM_HISTORY_FOUND,
     examHistory
   });
 }
@@ -35,7 +43,7 @@ const findById = async (req, res, next) => {
 const create = async (req, res, next) => {
   const [ err, examHistory ] = await to(ExamHistory.create(req.body));
   if (err) return next(err);
-  
+
   res.send({
     success: true,
     message: messages.EXAM_HISTORY_CREATED,
@@ -44,17 +52,18 @@ const create = async (req, res, next) => {
 }
 
 const update = async (req, res, next) => {
-  const [ err ] = await to(ExamHistory.update(req.body));
+  const { _id } = req.params;
+  const [ err ] = await to(ExamHistory.update({ _id, ...req.body }));
   if (err) return next(err);
 
   res.send({
-    success: false,
+    success: true,
     message: messages.EXAM_HISTORY_UPDATED
   });
 }
 
 const remove = async (req, res, next) => {
-  const [ err ] = await to(ExamHistory.remove(req.user._id));
+  const [ err ] = await to(ExamHistory.remove({ _id: req.params._id }));
   if (err) return next(err);
 
   res.send({
