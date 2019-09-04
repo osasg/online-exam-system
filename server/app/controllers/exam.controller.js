@@ -53,7 +53,7 @@ const enroll = async (req, res, next) => {
         message: messages.EXAM_NOT_FOUND
       });
 
-    const examHistory = await ExamHistory.create({ exam_id: _id, });
+    const examHistory = await ExamHistory.create({ exam_id: _id, student_id: req.user._id });
     if (!examHistory)
       return res.send({
         success: false,

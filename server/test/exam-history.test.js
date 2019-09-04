@@ -37,17 +37,37 @@ describe('examHistory test', () => {
     db.collection('accounts').drop();
   })
 
-  it('should create a examHistory', done => {
-    agent.post('/api/exam-histories/')
-      .send(examHistory)
+  it('should enroll the exam', done => {
+    agent.post('/api/exams/')
+      .send(exam)
+      .end((err, res) => {
+        agent.patch(`/api/exams/enroll/${res.body.exam._id}`)
+          .expect('Content-type', /json/)
+          .expect(status.OK)
+          .end((err, res) => {
+            assert.equal(err, null);
+            assert.equal(res.body.success, true);
+            assert.equal(res.body.message, 'EXAM_ENROLLED');
+            done();
+          })
+      });
+
+  });
+
+  it('should find enrolledExams', done => {
+    agent.get(`/api/exam-histories/enrollments`)
       .expect('Content-type', /json/)
       .expect(status.OK)
       .end((err, res) => {
         assert.equal(err, null);
         assert.equal(res.body.success, true);
-        assert.equal(res.body.message, 'EXAM_HISTORY_CREATED');
-        assert.notEqual(res.body.examHistory, null);
-        examHistory_id = res.body.examHistory._id;
+        assert.equal(res.body.message, 'EXAM_HISTORY_FIND_ENROLLED_EXAM');
+        assert.notEqual(res.body.enrolledExams, null);
+        assert.equal(res.body.enrolledExams.constructor, Array);
+        assert.equal(res.body.enrolledExams.length, 1);
+
+        examHistory_id = res.body.enrolledExams[0]._id;
+
         done();
       });
   });
@@ -92,4 +112,16 @@ describe('examHistory test', () => {
         done();
       });
   });
+
+  it('should start the exam', done => {
+    agent.patch(`/api/exam-histories/start/${examHistory_id}`)
+      .expect('Content-type', /json/)
+      .expect(status.OK)
+      .end((err, res) => {
+        assert.equal(err, null);
+        assert.equal(res.body.success, true);
+        assert.equal(res.body.message, 'EXAM_HISTORY_STARTED');
+        done();
+      });
+  })
 });

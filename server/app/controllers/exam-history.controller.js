@@ -6,7 +6,8 @@ const messages = {
   EXAM_HISTORY_FIND_ALL: 'EXAM_HISTORY_FIND_ALL',
   EXAM_HISTORY_FOUND: 'EXAM_HISTORY_FOUND',
   EXAM_HISTORY_NOT_FOUND: 'EXAM_HISTORY_NOT_FOUND',
-  EXAM_HISTORY_CREATED: 'EXAM_HISTORY_CREATED',
+  EXAM_HISTORY_FIND_ENROLLED_EXAM: 'EXAM_HISTORY_FIND_ENROLLED_EXAM',
+  EXAM_HISTORY_STARTED: 'EXAM_HISTORY_STARTED',
   EXAM_HISTORY_UPDATED: 'EXAM_HISTORY_UPDATED',
   EXAM_HISTORY_REMOVED: 'EXAM_HISTORY_REMOVED'
 }
@@ -40,14 +41,25 @@ const findById = async (req, res, next) => {
   });
 }
 
-const create = async (req, res, next) => {
-  const [ err, examHistory ] = await to(ExamHistory.create(req.body));
+const findEnrolledExams = async (req, res, next) => {
+  const [ err, enrolledExams ] = await to(ExamHistory.findEnrolledExams({ student_id: req.user._id }));
+  if (err) return next(err);
+  console.log(enrolledExams)
+
+  res.send({
+    success: true,
+    message: messages.EXAM_HISTORY_FIND_ENROLLED_EXAM,
+    enrolledExams
+  });
+}
+
+const start = async (req, res, next) => {
+  const [ err ] = await to(ExamHistory.updateStatus({ _id: req.params._id, status: 'DOING' }));
   if (err) return next(err);
 
   res.send({
     success: true,
-    message: messages.EXAM_HISTORY_CREATED,
-    examHistory
+    message: messages.EXAM_HISTORY_STARTED
   });
 }
 
@@ -75,7 +87,8 @@ const remove = async (req, res, next) => {
 module.exports = {
   findAll,
   findById,
-  create,
+  findEnrolledExams,
+  start,
   update,
   remove
 }
