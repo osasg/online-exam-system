@@ -43,6 +43,18 @@ const update = async ({ _id, questions  }) => {
   return collection.updateOne({ _id: ObjectId(_id) }, { $set: examHistory });
 }
 
+const updateSingleAnswer = async ({ _id, answer }) => {
+  return collection.updateOne({
+    _id: ObjectId(_id),
+    questions: { $elemMatch: { no: answer.no} }
+  },{
+    $set: {
+      'questions.$.answer': answer.answer,
+      'questions.$.flag': answer.flag
+    }
+  });
+}
+
 const remove = async ({ _id }) => {
   return collection.deleteOne({ _id: ObjectId(_id) });
 }
@@ -58,5 +70,6 @@ module.exports = {
   create,
   update,
   remove,
-  updateStatus
+  updateStatus,
+  updateSingleAnswer
 }

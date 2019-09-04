@@ -17,6 +17,8 @@ router.get('/:_id', controller.findById);
 
 router.put('/:_id', controller.update);
 
+router.patch('/:_id', controller.updateSingleAnswer);
+
 router.delete('/:_id', controller.remove);
 
 module.exports = router;

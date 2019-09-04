@@ -9,6 +9,7 @@ const messages = {
   EXAM_HISTORY_FIND_ENROLLED_EXAM: 'EXAM_HISTORY_FIND_ENROLLED_EXAM',
   EXAM_HISTORY_STARTED: 'EXAM_HISTORY_STARTED',
   EXAM_HISTORY_UPDATED: 'EXAM_HISTORY_UPDATED',
+  EXAM_HISTORY_UPDATED_SINGLE_ANSWER: 'EXAM_HISTORY_UPDATED_SINGLE_ANSWER',
   EXAM_HISTORY_REMOVED: 'EXAM_HISTORY_REMOVED'
 }
 
@@ -44,7 +45,6 @@ const findById = async (req, res, next) => {
 const findEnrolledExams = async (req, res, next) => {
   const [ err, enrolledExams ] = await to(ExamHistory.findEnrolledExams({ student_id: req.user._id }));
   if (err) return next(err);
-  console.log(enrolledExams)
 
   res.send({
     success: true,
@@ -74,6 +74,17 @@ const update = async (req, res, next) => {
   });
 }
 
+const updateSingleAnswer = async (req, res, next) => {
+  const { no, answer, flag } = req.body;
+  const [ err ] = await to(ExamHistory.updateSingleAnswer({ _id: req.params._id, answer: { no, answer, flag } }));
+  if (err) return next(err);
+
+  res.send({
+    success: true,
+    message: messages.EXAM_HISTORY_UPDATED_SINGLE_ANSWER
+  });
+}
+
 const remove = async (req, res, next) => {
   const [ err ] = await to(ExamHistory.remove({ _id: req.params._id }));
   if (err) return next(err);
@@ -90,5 +101,6 @@ module.exports = {
   findEnrolledExams,
   start,
   update,
+  updateSingleAnswer,
   remove
 }
