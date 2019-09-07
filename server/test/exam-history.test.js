@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const ObjectId = require('mongodb').ObjectId;
 require('should');
 
-const database = require('../config/database/mongo.config');
+const config = require('../config');
 let db;
 
 const SERVER_ADDRESS = '127.0.0.1:3001';
@@ -25,15 +25,18 @@ describe('examHistory test', () => {
         email: 'teacher@gmail.com'
       });
 
-    db = await database.connect();
+    await config.initialize();
+    db = global.configuration.db;
     await db.collection('accounts').updateOne({ username: 'teacher' }, { $push: { roles: 'teacher' } });
 
     agent.set('Authorization', `Bearer ${res.body.token}`);
   });
 
-  after(() => {
-    db.collection('accounts').drop();
-    db.collection('exams').deleteOne({ _id: ObjectId(exam_id) });
+  after(async () => {
+    await db.collection('accounts').drop();
+    await db.collection('exams').deleteOne({ _id: ObjectId(exam_id) });
+    await global.configuration.mongoClient.close();
+    delete global.configuraiton;
   })
 
   it('should enroll the exam', done => {

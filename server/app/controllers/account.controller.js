@@ -54,7 +54,7 @@ const getProfile = async (req, res, next) => {
 const create = async (req, res, next) => {
   const [ err, account ] = await to(Account.create(req.body));
   if (err) return next(err);
-  
+
   res.send({
     success: true,
     message: messages.ACCOUNT_CREATED,

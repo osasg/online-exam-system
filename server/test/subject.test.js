@@ -4,7 +4,7 @@ const status = require('http-status');
 const bcrypt = require('bcrypt');
 require('should');
 
-const database = require('../config/database/mongo.config');
+const config = require('../config');
 let db;
 
 const SERVER_ADDRESS = '127.0.0.1:3001';
@@ -26,15 +26,18 @@ describe('subject test', () => {
         password: 'teacher',
         email: 'teacher@gmail.com'
       });
-    
-    db = await database.connect();
+
+    await config.initialize();
+    db = global.configuration.db;
     await db.collection('accounts').updateOne({ username: 'teacher' }, { $push: { roles: 'teacher' } });
 
     agent.set('Authorization', `Bearer ${res.body.token}`);
   });
 
-  after(() => {
-    db.collection('accounts').drop();
+  after(async () => {
+    await db.collection('accounts').drop();
+    await global.configuration.mongoClient.close();
+    delete global.configuraiton;
   })
 
   it('should create a subject', done => {

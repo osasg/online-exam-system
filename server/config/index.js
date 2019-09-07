@@ -1,13 +1,15 @@
 const { to } = require('await-to-js');
 
-const logger = require('./logger/');
-const database = require('./database/mongo.config');
-const envVar = process.env.NODE_ENV || 'development';
+const logger = require('./logger.config');
+const database = require('./mongo.config');
 
-const environment = require(`./environments/${envVar}.env`);
+const environment = require(`./environment.config`);
 
 const initialize = async () => {
-  const [ err, db ] = await to(database.connect());
+  const configuration = { ...environment };
+  global.configuration = configuration;
+
+  const [ err, { db, client } ] = await to(database.connect());
   if (err) {
     logger.error('An error occurred while connecting to database');
     logger.error(err.message);
@@ -16,13 +18,9 @@ const initialize = async () => {
     return;
   }
 
-  const configuration = {
-    ...environment,
-    logger,
-    db
-  }
-
-  global.configuration = configuration;
+  configuration.db = db;
+  configuration.mongoClient = client;
+  configuration.logger = logger;
 
   return configuration;
 }

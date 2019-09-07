@@ -6,6 +6,9 @@ const status = require('http-status');
 const { accountRepository: Account } = require('../repositories');
 const { signInValidator, signUpValidator } = require('../validators');
 
+const JWT_SECRET = global.configuration.jwtSecret;
+const JWT_EXPIRES = global.configuration.jwtExpires;
+
 const postSignIn = async (req, res, next) => {
   const { username, password } = req.body;
   const { error, value } = signInValidator.validate({ username, password });
@@ -131,8 +134,8 @@ const patchResetPassword = async (req, res, next) => {
 const generateJWT = ({ _id, username }) => {
   const payloadToken = { _id, username };
 
-  return jwt.sign(payloadToken, process.env.JWT_SECRET, {
-    expiresIn: parseInt(process.env.JWT_EXPIRES)
+  return jwt.sign(payloadToken, JWT_SECRET, {
+    expiresIn: parseInt(JWT_EXPIRES)
   });
 };
 

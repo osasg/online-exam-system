@@ -31,4 +31,4 @@
 
 # server
 /server/temp
-/server/env.sh
+/server/*env.sh
