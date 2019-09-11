@@ -1,9 +1,0 @@
-.form-container {
-    margin-top: 48px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-}
-
-.form-container > * {
-    grid-column: 3/-3;
-}

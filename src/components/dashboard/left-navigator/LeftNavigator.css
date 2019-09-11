@@ -1,0 +1,56 @@
+.LeftNavigator .navigator {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 12px 0;
+    box-sizing: border-box;
+    display: none;
+    background-color: var(--bg-color);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform .3s ease;
+}
+
+.LeftNavigator .navigator.open {
+    transform: translateY(0);
+}
+
+.LeftNavigator .management {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 0;
+}
+
+.LeftNavigator .icon {
+    width: 48px;
+    height: 48px;
+    opacity: .8;
+    /* background-color: #999; */
+}
+
+.LeftNavigator .hamburger {
+    z-index: 9999;
+    height: 72px;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+}
+
+@media screen and (min-width: 768px) {
+    .LeftNavigator .navigator {
+        width: 72px;
+        transform: translateY(0);
+    }
+
+    .LeftNavigator .hamburger {
+        display: none;
+    }
+}

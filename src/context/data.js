@@ -6,7 +6,7 @@ export const enrollList = [
         duedate: "Mar 12, 2018",
         duration: "12 mins",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        participants: "23",
+        participants: 23,
         teacher: "Node"
     }, {
         name: 'NodeJS - Express',
@@ -107,7 +107,7 @@ export const examList = [
         duedate: "Mar 12, 2018",
         duration: "12 mins",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        participants: "23",
+        participants: 23,
         status: 'EXAMING'
     }, {
         name: 'Web scrapping',

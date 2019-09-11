@@ -1,0 +1,44 @@
+.boarding-wrap {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    margin-left: 32px;
+}
+
+.new-enroll {
+    flex: 1 1 0;
+}
+
+.filter {
+    padding: 0 4px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .boarding-wrap {
+        margin: 0;
+    }
+
+    .MainBoard {
+        margin-left: 72px;
+    }
+
+    .mainboard-container {
+        padding: 0 24px;
+    }
+
+    .filter {
+        font-size: 24px;
+    }
+
+    .item {
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (min-width: 1260px) {
+    .mainboard-container {
+        padding: 0 48px;
+    }
+}
