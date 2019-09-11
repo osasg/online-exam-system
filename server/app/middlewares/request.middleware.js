@@ -16,17 +16,13 @@ const wirePostRequest = (err, req, res, next) => {
   res.status(status.BAD_GATEWAY).send({
     success: false,
     status: status.BAD_GATEWAY,
-    message: err.message,
-    error: {
-      message: err.message,
-      stack: err.stack
-    }
+    message: 'An error occupied while processing request'
   });
 }
 
 const wireNotFoundMiddleware = (req, res, next) => {
   logger.warn(`ERROR :{} ${status.NOT_FOUND} ${req.method} ${req.url}`);
-  
+
   res.status(status.NOT_FOUND).send({
     success: false,
     status: status.NOT_FOUND,

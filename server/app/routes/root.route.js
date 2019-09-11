@@ -11,7 +11,7 @@ const { authMiddleware: auth } = require('../middlewares');
 
 const author = require('../../../author.json');
 
-router.get([ '/', '/author', '/about', '/api/' ], (req, res) => {
+router.get([ '/author', '/about', '/api/' ], (req, res) => {
   res.send({
     success: true,
     description: 'Welcome to online-exam system',

@@ -18,7 +18,7 @@ const start = async () => {
   const { server: { port, ssl }, logger } = global.configuration;
   let morganFormat = ':method :url :status :res[content-length] - :response-time ms';
 
-  process.on('uncaughtException', err => {  
+  process.on('uncaughtException', err => {
     logger.error('Unhandled Exception', err);
   });
 
@@ -34,7 +34,7 @@ const start = async () => {
   if (process.env.NODE_ENV === 'production')
     morganFormat = 'combined';
 
-  app.use(express.static(path.join(__dirname, '/../public')));
+  app.use(express.static(path.join(__dirname, '/../../build')));
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 
@@ -51,9 +51,11 @@ const start = async () => {
 
   app.use('/', rootRoute);
 
-  app.use(requestMiddleware.wirePostRequest);
+  app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/../../build/index.html'));
+  });
 
-  app.use(requestMiddleware.wireNotFoundMiddleware);
+  app.use(requestMiddleware.wirePostRequest);
 
   const server = await app.listen(port);
   logger.info(`SERVER IS NOW LISTENING ON PORT ${server.address().port}`);
