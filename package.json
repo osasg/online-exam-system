@@ -46,11 +46,11 @@
     "supertest": "^4.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server:start": "NODE_ENV=production node ./server/index.js",
+    "start": "NODE_ENV=production node ./server/index.js",
+    "client:start": "react-scripts start",
+    "client:build": "react-scripts build",
+    "client:test": "react-scripts test",
+    "client:eject": "react-scripts eject",
     "server:dev": ". ./server/development.env.sh && nodemon --inspect server/index.js",
     "server:dev:chrome-debug": ". ./server/development.env.sh && nodemon --inspect-brk ./server/index.js",
     "server:test": ". ./server/test.env.sh && NODE_ENV=test mocha ./server/test/**/*.test.js ./server/test/*.test.js",
